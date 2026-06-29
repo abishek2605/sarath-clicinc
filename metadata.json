@@ -1,0 +1,6 @@
+{
+  "name": "Bonitaa Skin and Hair Care Tiruppur",
+  "description": "Premium Skin and Hair Care Clinic in Tiruppur. Expert Dermatologists and Hair Loss Specialists offering advanced treatments with 0 consultation fee.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
