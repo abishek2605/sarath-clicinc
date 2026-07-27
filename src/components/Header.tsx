@@ -32,6 +32,18 @@ export default function Header({ onBookClick }: HeaderProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Prevent background scrolling when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const primaryLinks = [
     { name: 'Home', href: '#home' },
     { name: 'Treatments', href: '#treatments' },
@@ -69,20 +81,19 @@ export default function Header({ onBookClick }: HeaderProps) {
   };
 
   const handleMouseLeave = () => {
-    // Wait 150ms before closing the dropdown to allow for smooth cursor navigation over diagonal or empty areas (Safe Zone)
     leaveTimeoutId = setTimeout(() => {
       setIsDropdownOpen(false);
     }, 150);
   };
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-[#111111]/95 backdrop-blur-md shadow-lg border-b border-gold/10 py-3' : 'bg-transparent py-5'
+    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 pt-[env(safe-area-inset-top,0px)] ${
+      isScrolled ? 'bg-[#111111]/95 backdrop-blur-md shadow-lg border-b border-gold/10 py-2.5' : 'bg-transparent py-4 md:py-5'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#home" onClick={(e) => handleLinkClick(e, '#home')} className="flex items-center py-2" id="header-logo-link">
+          <a href="#home" onClick={(e) => handleLinkClick(e, '#home')} className="flex items-center py-1 shrink-0" id="header-logo-link">
             <Logo />
           </a>
 
@@ -93,7 +104,7 @@ export default function Header({ onBookClick }: HeaderProps) {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className="text-gray-300 hover:text-gold text-xs uppercase tracking-widest font-semibold transition-colors duration-200 px-3 py-4 rounded-md"
+                className="text-gray-300 hover:text-gold text-xs uppercase tracking-widest font-semibold transition-colors duration-200 px-3 py-3 rounded-md"
                 id={`nav-${link.name.toLowerCase().replace(/ & /g, '-')}`}
               >
                 {link.name}
@@ -107,7 +118,7 @@ export default function Header({ onBookClick }: HeaderProps) {
               onMouseLeave={handleMouseLeave}
             >
               <button
-                className={`text-gray-300 hover:text-gold text-xs uppercase tracking-widest font-semibold transition-colors duration-200 px-3 py-4 rounded-md flex items-center gap-1 cursor-pointer ${isDropdownOpen ? 'text-gold' : ''}`}
+                className={`text-gray-300 hover:text-gold text-xs uppercase tracking-widest font-semibold transition-colors duration-200 px-3 py-3 rounded-md flex items-center gap-1 cursor-pointer ${isDropdownOpen ? 'text-gold' : ''}`}
                 id="nav-more-trigger"
                 aria-haspopup="true"
                 aria-expanded={isDropdownOpen}
@@ -168,7 +179,7 @@ export default function Header({ onBookClick }: HeaderProps) {
             
             <button
               onClick={onBookClick}
-              className="bg-gold hover:bg-gold/90 text-black font-bold text-xs uppercase tracking-widest py-3 px-5 rounded transition-all duration-300 transform hover:scale-[1.02] shadow-md shadow-gold/10 flex items-center gap-2 cursor-pointer"
+              className="bg-gold hover:bg-gold/90 text-black font-bold text-xs uppercase tracking-widest py-2.5 px-4 md:px-5 rounded transition-all duration-300 transform hover:scale-[1.02] shadow-md shadow-gold/10 flex items-center gap-2 cursor-pointer"
               id="header-book-cta"
             >
               <Calendar className="w-4 h-4" />
@@ -177,17 +188,18 @@ export default function Header({ onBookClick }: HeaderProps) {
           </div>
 
           {/* Mobile Menu Trigger */}
-          <div className="flex lg:hidden items-center gap-3">
+          <div className="flex lg:hidden items-center gap-2 sm:gap-3">
             <a
               href="tel:09092136969"
-              className="sm:hidden w-10 h-10 rounded border border-gold/20 flex items-center justify-center bg-black/30 text-gold"
+              className="sm:hidden w-9 h-9 rounded border border-gold/20 flex items-center justify-center bg-black/40 text-gold"
               id="mobile-header-call-icon"
+              aria-label="Call Specialist"
             >
               <Phone className="w-4 h-4" />
             </a>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-gold p-3 rounded"
+              className="text-gray-300 hover:text-gold p-2 rounded cursor-pointer"
               id="mobile-menu-toggle"
               aria-label="Toggle Menu"
             >
@@ -197,16 +209,16 @@ export default function Header({ onBookClick }: HeaderProps) {
         </div>
       </div>
 
-      {/* Mobile Drawer Overlay */}
+      {/* Mobile Drawer Overlay - Safe zone anchored directly below header */}
       {isOpen && (
-        <div className="fixed inset-0 top-[72px] bg-black/95 z-40 lg:hidden flex flex-col justify-between py-6 px-6 animate-fade-in border-t border-gold/10 overflow-y-auto">
-          <nav className="flex flex-col gap-4" id="mobile-nav">
+        <div className="absolute top-full left-0 w-full bg-[#111111]/98 backdrop-blur-xl z-40 lg:hidden flex flex-col justify-between py-6 px-6 shadow-2xl border-t border-gold/15 max-h-[calc(100dvh-70px)] overflow-y-auto pb-[calc(2rem+env(safe-area-inset-bottom,0px))]">
+          <nav className="flex flex-col gap-3" id="mobile-nav">
             {allLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className="text-gray-300 hover:text-gold text-xs uppercase tracking-widest font-semibold border-b border-gray-900 pb-3 block pt-2"
+                className="text-gray-200 hover:text-gold text-xs uppercase tracking-widest font-semibold border-b border-gray-900 pb-3 block pt-1.5 transition-colors"
                 id={`mobile-nav-${link.name.toLowerCase().replace(/ & /g, '-')}`}
               >
                 {link.name}
@@ -214,10 +226,10 @@ export default function Header({ onBookClick }: HeaderProps) {
             ))}
           </nav>
 
-          <div className="flex flex-col gap-4 mt-8">
+          <div className="flex flex-col gap-3 mt-6 pt-4 border-t border-gray-900">
             <a
               href="tel:09092136969"
-              className="flex items-center justify-center gap-3 border border-gold/30 text-gold font-bold py-3 px-4 rounded text-center text-xs uppercase tracking-widest"
+              className="flex items-center justify-center gap-2.5 border border-gold/30 text-gold font-bold py-3 px-4 rounded text-center text-xs uppercase tracking-widest active:bg-gold/10"
               id="mobile-drawer-call"
             >
               <Phone className="w-4 h-4" />
@@ -228,10 +240,10 @@ export default function Header({ onBookClick }: HeaderProps) {
                 setIsOpen(false);
                 onBookClick();
               }}
-              className="bg-gold text-black font-bold py-3 px-4 rounded text-center text-xs uppercase tracking-widest hover:bg-gold/90 transition-colors shadow-md shadow-gold/10 cursor-pointer"
+              className="bg-gold text-black font-bold py-3 px-4 rounded text-center text-xs uppercase tracking-widest hover:bg-gold/90 transition-colors shadow-md shadow-gold/10 cursor-pointer active:scale-[0.98]"
               id="mobile-drawer-book"
             >
-              Book Free Consultation
+              Book Consultation
             </button>
           </div>
         </div>

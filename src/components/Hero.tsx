@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Phone, Calendar, Shield, Award, Users, CheckCircle2, Sparkles, AlertCircle } from 'lucide-react';
 import { LeadSubmission } from '../types';
+import { sendLeadToFormspree } from '../services/formspree';
 
 interface HeroProps {
   onSuccess: (submission: LeadSubmission) => void;
@@ -74,40 +75,40 @@ export default function Hero({ onSuccess }: HeroProps) {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
 
     setIsSubmitting(true);
+
+    const submission: LeadSubmission = {
+      name: formData.name.trim(),
+      phone: formData.phone.trim(),
+      treatment: formData.treatment,
+      preferredTime: formData.preferredTime,
+      consultationType: formData.consultationType,
+      submittedAt: new Date().toISOString()
+    };
+
+    // 1. Post to Formspree endpoint (https://formspree.io/f/xykqbvjk)
+    await sendLeadToFormspree(submission);
+
+    // 2. Persistence in local storage
+    const existingLeads = JSON.parse(localStorage.getItem('bonitaa_leads') || '[]');
+    existingLeads.unshift(submission);
+    localStorage.setItem('bonitaa_leads', JSON.stringify(existingLeads));
+
+    setIsSubmitting(false);
+    onSuccess(submission);
     
-    // Simulate real API / Webhook submission
-    setTimeout(() => {
-      const submission: LeadSubmission = {
-        name: formData.name.trim(),
-        phone: formData.phone.trim(),
-        treatment: formData.treatment,
-        preferredTime: formData.preferredTime,
-        consultationType: formData.consultationType,
-        submittedAt: new Date().toISOString()
-      };
-
-      // Persistence
-      const existingLeads = JSON.parse(localStorage.getItem('bonitaa_leads') || '[]');
-      existingLeads.unshift(submission);
-      localStorage.setItem('bonitaa_leads', JSON.stringify(existingLeads));
-
-      setIsSubmitting(false);
-      onSuccess(submission);
-      
-      // Reset form
-      setFormData({
-        name: '',
-        phone: '',
-        treatment: '',
-        preferredTime: '',
-        consultationType: 'IN-CLINIC'
-      });
-    }, 1200);
+    // Reset form
+    setFormData({
+      name: '',
+      phone: '',
+      treatment: '',
+      preferredTime: '',
+      consultationType: 'IN-CLINIC'
+    });
   };
 
   return (

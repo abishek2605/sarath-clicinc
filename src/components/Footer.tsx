@@ -70,7 +70,7 @@ export default function Footer({ onAdminClick }: FooterProps) {
   };
 
   return (
-    <footer className="bg-[#0A0A0A] text-white border-t border-gold/15 pt-16 pb-8 relative" id="clinic-footer">
+    <footer className="bg-[#0A0A0A] text-white border-t border-gold/15 pt-12 sm:pt-16 pb-[calc(5rem+env(safe-area-inset-bottom,0px))] sm:pb-8 relative" id="clinic-footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-gray-900">

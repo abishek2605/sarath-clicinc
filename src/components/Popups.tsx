@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X, Phone, Gift, Calendar, AlertCircle } from 'lucide-react';
 import { LeadSubmission } from '../types';
 import { TREATMENTS_LIST } from './Hero';
+import { sendLeadToFormspree } from '../services/formspree';
 
 interface PopupsProps {
   onBookClick: () => void;
@@ -56,7 +57,7 @@ export default function Popups({ onBookClick, onSuccess }: PopupsProps) {
   }, [scrollPopupDismissed, showScrollPopup]);
 
   // Handle Exit Form Submit
-  const handleExitSubmit = (e: React.FormEvent) => {
+  const handleExitSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors: Record<string, string> = {};
     if (!exitForm.name.trim()) newErrors.name = 'Name is required';
@@ -76,23 +77,26 @@ export default function Popups({ onBookClick, onSuccess }: PopupsProps) {
     }
 
     setIsSubmitting(true);
-    setTimeout(() => {
-      const submission: LeadSubmission = {
-        name: exitForm.name.trim(),
-        phone: exitForm.phone.trim(),
-        treatment: exitForm.treatment,
-        submittedAt: new Date().toISOString()
-      };
 
-      const existingLeads = JSON.parse(localStorage.getItem('bonitaa_leads') || '[]');
-      existingLeads.unshift(submission);
-      localStorage.setItem('bonitaa_leads', JSON.stringify(existingLeads));
+    const submission: LeadSubmission = {
+      name: exitForm.name.trim(),
+      phone: exitForm.phone.trim(),
+      treatment: exitForm.treatment,
+      submittedAt: new Date().toISOString()
+    };
 
-      setIsSubmitting(false);
-      setShowExitIntent(false);
-      setExitIntentDismissed(true);
-      onSuccess(submission);
-    }, 1000);
+    // 1. Post to Formspree endpoint
+    await sendLeadToFormspree(submission);
+
+    // 2. Persistence in local storage
+    const existingLeads = JSON.parse(localStorage.getItem('bonitaa_leads') || '[]');
+    existingLeads.unshift(submission);
+    localStorage.setItem('bonitaa_leads', JSON.stringify(existingLeads));
+
+    setIsSubmitting(false);
+    setShowExitIntent(false);
+    setExitIntentDismissed(true);
+    onSuccess(submission);
   };
 
   const dismissExitIntent = () => {
@@ -255,7 +259,7 @@ export default function Popups({ onBookClick, onSuccess }: PopupsProps) {
       </a>
 
       {/* C. STICKY MOBILE BOTTOM CTA BAR */}
-      <div className="fixed bottom-0 left-0 w-full z-40 bg-[#0E0E0E]/95 backdrop-blur shadow-lg border-t border-gold/20 grid grid-cols-3 sm:hidden" id="mobile-sticky-cta">
+      <div className="fixed bottom-0 left-0 w-full z-40 bg-[#0E0E0E]/95 backdrop-blur shadow-lg border-t border-gold/20 grid grid-cols-3 sm:hidden pb-[env(safe-area-inset-bottom,0px)]" id="mobile-sticky-cta">
         {/* Call Now Button */}
         <a 
           href="tel:09092136969"
