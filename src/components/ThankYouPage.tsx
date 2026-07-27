@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
-import { CheckCircle2, Calendar, Phone, MessageSquare, MapPin, ArrowLeft, Clock, Sparkles, ShieldCheck } from 'lucide-react';
+import { CheckCircle2, Calendar, Phone, MapPin, ArrowLeft, Clock, Sparkles, ShieldCheck } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { LeadSubmission } from '../types';
+
+const WhatsappIcon = FaWhatsapp as unknown as React.FC<{ className?: string }>;
 
 interface ThankYouPageProps {
   lead?: LeadSubmission | null;
@@ -159,7 +162,7 @@ export default function ThankYouPage({ lead, onReturnHome }: ThankYouPageProps) 
             className="w-full bg-gold hover:bg-gold/90 text-black font-bold text-xs uppercase tracking-widest py-3.5 px-4 rounded transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-lg"
             id="thankyou-whatsapp-btn"
           >
-            <MessageSquare className="w-4 h-4 fill-current" />
+            <WhatsappIcon className="w-4 h-4 text-black" />
             Instant WhatsApp Confirmation
           </a>
 

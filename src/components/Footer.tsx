@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { Logo } from './Header';
-import { Phone, MapPin, Instagram, Facebook, Globe, Lock, ChevronDown, BookOpen, ShieldCheck, Activity, X } from 'lucide-react';
+import { Phone, MapPin, Globe, Lock, ChevronDown, BookOpen, ShieldCheck, Activity, X } from 'lucide-react';
+import { FaInstagram, FaFacebookF, FaWhatsapp, FaMapMarkerAlt } from 'react-icons/fa';
+
+const WhatsappIcon = FaWhatsapp as unknown as React.FC<{ className?: string }>;
+const InstagramIcon = FaInstagram as unknown as React.FC<{ className?: string }>;
+const FacebookIcon = FaFacebookF as unknown as React.FC<{ className?: string }>;
+const MapMarkerIcon = FaMapMarkerAlt as unknown as React.FC<{ className?: string }>;
 
 interface FooterProps {
   onAdminClick: () => void;
@@ -81,15 +87,18 @@ export default function Footer({ onAdminClick }: FooterProps) {
             <p className="font-sans text-gray-400 text-xs sm:text-sm leading-relaxed font-light max-w-sm">
               We specialize in advanced medical skin rejuvenation, clinical chemical peeling, acne scar remodeling, and autologous growth-factor hair density restoration therapies.
             </p>
-            <div className="flex gap-4">
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center text-gray-400 hover:text-gold hover:border-gold transition-all duration-200" id="footer-instagram-link">
-                <Instagram className="w-5 h-5" />
+            <div className="flex gap-3">
+              <a href="https://wa.me/919092136969" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center text-gray-400 hover:text-green-400 hover:border-green-500 transition-all duration-200 bg-black/40" id="footer-whatsapp-link" aria-label="WhatsApp">
+                <WhatsappIcon className="w-5 h-5" />
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center text-gray-400 hover:text-gold hover:border-gold transition-all duration-200" id="footer-facebook-link">
-                <Facebook className="w-5 h-5" />
+              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center text-gray-400 hover:text-pink-400 hover:border-pink-500 transition-all duration-200 bg-black/40" id="footer-instagram-link" aria-label="Instagram">
+                <InstagramIcon className="w-5 h-5" />
               </a>
-              <a href="https://maps.google.com/?q=BONITAA+SKIN+AND+HAIR+CARE+Tiruppur" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center text-gray-400 hover:text-gold hover:border-gold transition-all duration-200" id="footer-maps-link">
-                <Globe className="w-5 h-5" />
+              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center text-gray-400 hover:text-blue-400 hover:border-blue-500 transition-all duration-200 bg-black/40" id="footer-facebook-link" aria-label="Facebook">
+                <FacebookIcon className="w-4 h-4" />
+              </a>
+              <a href="https://maps.google.com/?q=BONITAA+SKIN+AND+HAIR+CARE+Tiruppur" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center text-gray-400 hover:text-gold hover:border-gold transition-all duration-200 bg-black/40" id="footer-maps-link" aria-label="Google Maps">
+                <MapMarkerIcon className="w-4 h-4" />
               </a>
             </div>
           </div>

@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { X, Phone, Gift, Calendar, AlertCircle } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { LeadSubmission } from '../types';
 import { TREATMENTS_LIST } from './Hero';
 import { sendLeadToFormspree } from '../services/formspree';
+
+const WhatsappIcon = FaWhatsapp as unknown as React.FC<{ className?: string }>;
 
 interface PopupsProps {
   onBookClick: () => void;
@@ -250,9 +253,7 @@ export default function Popups({ onBookClick, onSuccess }: PopupsProps) {
         className="hidden sm:flex fixed bottom-6 right-6 z-40 bg-green-600 hover:bg-green-500 text-white p-3.5 rounded-full shadow-2xl border border-white/20 items-center gap-2.5 transition-all transform hover:scale-105 group"
         id="desktop-floating-whatsapp"
       >
-        <svg className="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
-          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.002-2.637-1.03-5.114-2.905-6.99C16.558 1.875 14.09 .845 11.458.845c-5.441 0-9.866 4.423-9.87 9.868-.002 1.798.487 3.554 1.417 5.11L1.956 22.01l6.234-1.636z" />
-        </svg>
+        <WhatsappIcon className="w-6 h-6 text-white" />
         <span className="text-xs font-bold tracking-wider uppercase pr-1 hidden group-hover:inline transition-all">
           Chat With Clinic
         </span>
@@ -278,10 +279,7 @@ export default function Popups({ onBookClick, onSuccess }: PopupsProps) {
           className="flex flex-col items-center justify-center gap-1 py-3 border-r border-gray-900 hover:bg-black transition-colors"
           id="mobile-sticky-whatsapp"
         >
-          {/* Custom green/gold WhatsApp Icon */}
-          <svg className="w-4 h-4 text-green-500 fill-current" viewBox="0 0 24 24">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.002-2.637-1.03-5.114-2.905-6.99C16.558 1.875 14.09 .845 11.458.845c-5.441 0-9.866 4.423-9.87 9.868-.002 1.798.487 3.554 1.417 5.11L1.956 22.01l6.234-1.636z" />
-          </svg>
+          <WhatsappIcon className="w-4 h-4 text-green-500" />
           <span className="text-[9px] uppercase tracking-widest text-gray-300 font-bold">WhatsApp</span>
         </a>
 
