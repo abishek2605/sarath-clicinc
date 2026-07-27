@@ -49,13 +49,9 @@ export default function ThankYouPage({ lead, onReturnHome }: ThankYouPageProps) 
           <img 
             src="/bonitaa-logo.png" 
             alt="Bonitaa Skin and Hair Care" 
-            className="h-10 w-auto object-contain"
+            className="h-10 md:h-12 w-auto object-contain"
             referrerPolicy="no-referrer"
           />
-          <div className="hidden sm:flex flex-col text-left">
-            <span className="font-sans font-bold tracking-[0.2em] text-sm text-white leading-none">BONITAA</span>
-            <span className="font-sans text-[7px] tracking-[0.3em] text-gold uppercase mt-0.5">Skin & Hair Care</span>
-          </div>
         </div>
       </div>
 

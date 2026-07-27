@@ -14,10 +14,6 @@ export function Logo() {
         className="h-10 md:h-12 w-auto object-contain"
         referrerPolicy="no-referrer"
       />
-      <div className="flex flex-col">
-        <span className="font-sans font-bold tracking-[0.25em] text-lg md:text-xl text-white leading-none">BONITAA</span>
-        <span className="font-sans text-[7px] md:text-[8px] tracking-[0.35em] text-gold uppercase font-semibold mt-1">Skin and Hair Care</span>
-      </div>
     </div>
   );
 }

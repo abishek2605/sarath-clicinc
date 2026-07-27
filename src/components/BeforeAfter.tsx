@@ -110,78 +110,71 @@ export default function BeforeAfter() {
           {filteredCards.map((card) => (
             <div 
               key={card.id}
-              className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-[#181818] border border-gray-800 rounded-xl overflow-hidden shadow-xl hover:border-gold/50 transition-all duration-300 flex flex-col justify-between"
             >
-              {/* Image Container */}
-              <div className="relative aspect-[4/3] bg-black overflow-hidden flex">
+              {/* Pure Clean Full View Image Container - Zero Text Overlap */}
+              <div className="w-full h-64 sm:h-72 bg-black flex items-center justify-center overflow-hidden border-b border-gray-800">
                 {card.fullImg ? (
-                  <div className="w-full h-full relative">
-                    <img 
-                      src={card.fullImg} 
-                      alt={`${card.title} clinical result`}
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                    <span className="absolute bottom-2 right-2 bg-gold text-black text-[9px] font-bold px-2 py-0.5 rounded uppercase shadow">
-                      VERIFIED RESULT
-                    </span>
-                  </div>
+                  <img 
+                    src={card.fullImg} 
+                    alt={`${card.title} clinical result`}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-contain"
+                    loading="lazy"
+                  />
                 ) : (
-                  <>
-                    <div className="w-1/2 h-full relative border-r border-gold/40">
+                  <div className="w-full h-full flex">
+                    <div className="w-1/2 h-full border-r border-gray-800">
                       <img 
                         src={card.beforeImg} 
                         alt={`${card.title} before`}
                         referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain"
                         loading="lazy"
                       />
-                      <span className="absolute bottom-2 left-2 bg-black/80 text-white text-[9px] font-bold px-2 py-0.5 rounded uppercase">
-                        BEFORE
-                      </span>
                     </div>
-                    <div className="w-1/2 h-full relative">
+                    <div className="w-1/2 h-full">
                       <img 
                         src={card.afterImg} 
                         alt={`${card.title} after`}
                         referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain"
                         loading="lazy"
                       />
-                      <span className="absolute bottom-2 right-2 bg-gold text-black text-[9px] font-bold px-2 py-0.5 rounded uppercase">
-                        AFTER
-                      </span>
                     </div>
-                  </>
+                  </div>
                 )}
-
-                {/* Category Tag */}
-                <span className="absolute top-2 left-2 bg-black/90 border border-gold/30 text-gold text-[9px] font-bold px-2.5 py-0.5 rounded uppercase tracking-wider">
-                  {card.treatmentTag}
-                </span>
               </div>
 
-              {/* Card Information */}
-              <div className="p-5 flex-grow flex flex-col justify-between">
+              {/* Card Information & Metadata - All text strictly below image */}
+              <div className="p-5 flex-grow flex flex-col justify-between text-white">
                 <div>
-                  <h3 className="font-sans font-bold text-base text-gray-900 leading-snug">
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className="bg-gold/15 border border-gold/40 text-gold text-[10px] font-bold px-2.5 py-0.5 rounded uppercase tracking-wider">
+                      {card.treatmentTag}
+                    </span>
+                    <span className="text-[10px] text-green-400 font-semibold tracking-wider uppercase bg-green-500/10 border border-green-500/30 px-2 py-0.5 rounded">
+                      Verified Result
+                    </span>
+                  </div>
+                  
+                  <h3 className="font-sans font-bold text-base text-white leading-snug">
                     {card.title}
                   </h3>
-                  <p className="text-xs text-gray-500 mt-1 font-light">
+                  <p className="text-xs text-gray-400 mt-1 font-light">
                     {card.subtitle}
                   </p>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-gray-200 flex items-center justify-between text-[11px]">
-                  <span className="text-gray-600 font-medium">
+                <div className="mt-4 pt-3 border-t border-gray-800 flex items-center justify-between text-xs">
+                  <span className="text-gray-300 font-medium text-[11px]">
                     {card.sessionsBadge}
                   </span>
                   <button 
                     onClick={scrollToBooking}
-                    className="text-gold font-bold hover:underline flex items-center gap-1 cursor-pointer"
+                    className="bg-gold hover:bg-gold/90 text-black text-[11px] font-bold py-1.5 px-3 rounded uppercase tracking-wider transition-colors cursor-pointer"
                   >
-                    Book Now →
+                    Book Now
                   </button>
                 </div>
               </div>
