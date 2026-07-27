@@ -41,7 +41,7 @@ export default function WhyChooseUs() {
     {
       icon: CheckCircle,
       title: '98.7% Patient Satisfaction',
-      description: 'Over 12,000+ satisfied patients across Tamil Nadu. Highly trusted local reputation with stellar Google ratings and reviews.'
+      description: 'Over 12,000+ satisfied patients across Tamil Nadu. Highly trusted local reputation with patient-first care and verified feedback.'
     }
   ];
 
@@ -49,7 +49,7 @@ export default function WhyChooseUs() {
     { number: '12,000+', label: 'Happy Patients' },
     { number: '10+', label: 'Years Experience' },
     { number: '98.7%', label: 'Success Rate' },
-    { number: '0', label: 'Consultation Fee' }
+    { number: '₹99', label: 'Consultation Fee' }
   ];
 
   return (

@@ -195,31 +195,21 @@ export default function Treatments({ onSelectTreatment }: TreatmentsProps) {
               className="group bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
               id={`treatment-card-${treatment.id}`}
             >
-              {/* Image & Tag */}
-              <div className="relative h-48 overflow-hidden bg-gray-50">
-                <img
-                  src={treatment.image}
-                  alt={`${treatment.title} at Bonitaa Clinic Tiruppur`}
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                
-                {treatment.tag && (
-                  <span className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm border border-gold/40 text-gold text-[9px] font-semibold uppercase tracking-widest px-3 py-1 rounded">
-                    {treatment.tag}
-                  </span>
-                )}
-                
-                <span className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-black text-[10px] font-semibold px-2.5 py-1 rounded">
-                  {treatment.duration}
-                </span>
-              </div>
-
               {/* Content */}
               <div className="p-6 flex-grow flex flex-col justify-between">
                 <div>
+                  {/* Top Tag & Duration Header */}
+                  <div className="flex items-center justify-between gap-2 mb-4">
+                    {treatment.tag ? (
+                      <span className="bg-gold/10 border border-gold/30 text-gold text-[10px] font-semibold uppercase tracking-widest px-2.5 py-1 rounded">
+                        {treatment.tag}
+                      </span>
+                    ) : <div />}
+                    <span className="text-gray-500 text-[11px] font-medium bg-gray-50 border border-gray-200 px-2.5 py-1 rounded">
+                      ⏱️ {treatment.duration}
+                    </span>
+                  </div>
+
                   <h3 className="font-sans font-bold text-lg text-gray-900 group-hover:text-gold transition-colors duration-200">
                     {treatment.title}
                   </h3>
@@ -231,7 +221,7 @@ export default function Treatments({ onSelectTreatment }: TreatmentsProps) {
                 <div className="pt-6 mt-6 border-t border-gray-100 flex items-center justify-between">
                   <span className="text-[10px] text-gold uppercase tracking-widest font-semibold flex items-center gap-1">
                     <Zap className="w-3 h-3 text-gold shrink-0" />
-                    Doctor Consultation ₹0
+                    Doctor Consultation ₹99
                   </span>
                   
                   <button

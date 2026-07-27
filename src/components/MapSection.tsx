@@ -66,12 +66,27 @@ export default function MapSection() {
                 </div>
 
                 {/* Operating Hours */}
-                <div className="flex items-center gap-3 text-xs sm:text-sm pt-2">
+                <div className="flex items-center gap-3 text-xs sm:text-sm pt-1">
                   <Clock className="w-4 h-4 text-gold shrink-0" />
                   <div>
                     <p className="text-gray-400 uppercase tracking-widest text-[9px] font-bold">Working Hours</p>
                     <p className="text-black font-semibold">10:00 AM - 07:00 PM <span className="text-gray-500 font-light text-xs">(All Days Open)</span></p>
                   </div>
+                </div>
+
+                {/* WhatsApp Chat Button */}
+                <div className="pt-2">
+                  <a
+                    href="https://wa.me/919092136969?text=Hi%20I%20am%20interested%20in%20booking%20a%20Free%20Consultation%20at%20Bonitaa%20Tiruppur"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-full bg-green-600 hover:bg-green-700 text-white font-bold text-xs uppercase tracking-wider py-3 px-4 rounded transition-all duration-200 flex items-center justify-center gap-2 shadow"
+                  >
+                    <svg className="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
+                      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.002-2.637-1.03-5.114-2.905-6.99C16.558 1.875 14.09 .845 11.458.845c-5.441 0-9.866 4.423-9.87 9.868-.002 1.798.487 3.554 1.417 5.11L1.956 22.01l6.234-1.636z" />
+                    </svg>
+                    Chat With Us Instantly
+                  </a>
                 </div>
               </div>
             </div>

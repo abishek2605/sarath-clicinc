@@ -17,7 +17,7 @@ const TESTIMONIALS_DATA: Review[] = [
     name: 'Suhasini Krishnan',
     date: '3 weeks ago',
     rating: 5,
-    text: 'Wonderful experience with Dr. Priya for my melasma and face pigmentation. She diagnosed my skin very carefully and recommended specific sessions. My skin is now very even, bright, and glowing. The zero consultation fee offer was also genuine!',
+    text: 'Wonderful experience with Dr. Priya for my melasma and face pigmentation. She diagnosed my skin very carefully and recommended specific sessions. My skin is now very even, bright, and glowing. The affordable consultation fee was also genuine!',
     treatment: 'Pigmentation Treatment',
     avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80'
   },
@@ -43,10 +43,10 @@ export default function Testimonials() {
             Patient Stories
           </span>
           <h2 className="font-sans font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight text-gray-900">
-            Real Reviews, Real Outcomes
+            Real Stories, Real Transformations
           </h2>
           <p className="font-sans text-gray-500 text-sm sm:text-base mt-4 font-light leading-relaxed">
-            Discover verified reviews from patients who achieved healthy, beautiful transformations at our Tiruppur clinic.
+            See patient feedback from those who achieved healthy, beautiful results at our Tiruppur clinic.
           </p>
         </div>
 
@@ -96,7 +96,7 @@ export default function Testimonials() {
             className="bg-black hover:bg-black/90 text-white font-bold text-xs uppercase tracking-widest py-3.5 px-6 rounded transition-all duration-300 flex items-center gap-2 cursor-pointer border border-black shadow"
             id="leave-review-trigger"
           >
-            Schedule Free Consult
+            Schedule Consultation
           </a>
         </div>
 
@@ -148,56 +148,116 @@ export default function Testimonials() {
           ))}
         </div>
 
-        {/* Video Testimonial Placeholder Block */}
-        <div className="max-w-4xl mx-auto" id="video-testimonial-section">
-          <div className="text-center mb-8">
-            <h3 className="font-sans font-bold text-lg sm:text-xl text-gray-900 flex items-center justify-center gap-2">
+        {/* Video Patient Stories (Instagram Reels style) */}
+        <div className="mt-16" id="video-reels-section">
+          <div className="text-center mb-10">
+            <span className="text-xs font-semibold text-gold uppercase tracking-widest block mb-2">
+              Video Patient Stories
+            </span>
+            <h3 className="font-sans font-bold text-xl sm:text-2xl text-gray-900 flex items-center justify-center gap-2">
               <Video className="w-5 h-5 text-gold" />
-              Watch Video Testimonials
+              Watch Real Patient Experiences & Clinic Tours
             </h3>
-            <p className="text-xs text-gray-500 mt-1">Listen to raw video records of our patients detailing their recoveries</p>
+            <p className="text-xs text-gray-500 mt-2 font-light">
+              Watch real, unedited experiences and clinic walkthroughs from local patients.
+            </p>
           </div>
 
-          {/* Luxury Video Thumbnail Frame */}
-          <div 
-            className="relative aspect-video rounded-xl overflow-hidden shadow-2xl border border-gray-100 group cursor-pointer bg-black"
-            onClick={() => {
-              const target = document.querySelector('#home');
-              if (target) {
-                const offset = 80;
-                const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
-                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-                document.getElementById('name-input')?.focus();
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6" id="instagram-reels-grid">
+            {[
+              {
+                id: 'reel-1',
+                profileName: 'tirupur_com',
+                coBrand: 'bonitaa_tiruppur',
+                profilePic: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80',
+                thumbnail: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80',
+                caption: 'Living with hair loss for 2+ years? See how Bonitaa Tiruppur restored density in 4 sessions.',
+                likes: '1.4k',
+                comments: '82'
+              },
+              {
+                id: 'reel-2',
+                profileName: 'tirupur_foodie',
+                coBrand: 'bonitaa_tiruppur',
+                profilePic: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80',
+                thumbnail: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80',
+                caption: "Take a tour of Tiruppur's most luxurious skin & hair care clinic at 60 Feet Road.",
+                likes: '2.1k',
+                comments: '143'
+              },
+              {
+                id: 'reel-3',
+                profileName: 'tales_of_kousi',
+                coBrand: 'bonitaa_tiruppur',
+                profilePic: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80',
+                thumbnail: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80',
+                caption: 'Real Acne Scar Remodeling results with subcision & collagen induction therapy.',
+                likes: '3.8k',
+                comments: '210'
               }
-            }}
-            id="video-placeholder-frame"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80"
-              alt="Clinical Video Interview Backdrop"
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-cover opacity-60 group-hover:opacity-50 group-hover:scale-102 transition-all duration-500"
-              loading="lazy"
-            />
-            {/* Absolute Luxury Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+            ].map((reel) => (
+              <div 
+                key={reel.id}
+                onClick={() => {
+                  const target = document.querySelector('#home');
+                  if (target) {
+                    const offset = 80;
+                    const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                    document.getElementById('name-input')?.focus();
+                  }
+                }}
+                className="bg-black text-white rounded-xl overflow-hidden border border-gray-800 shadow-xl group cursor-pointer hover:border-gold/40 transition-all duration-300 flex flex-col justify-between"
+              >
+                {/* Reel Header */}
+                <div className="p-3.5 flex items-center justify-between border-b border-gray-900 bg-black/90">
+                  <div className="flex items-center gap-2.5">
+                    <img 
+                      src={reel.profilePic} 
+                      alt={reel.profileName} 
+                      className="w-8 h-8 rounded-full object-cover border border-gold/40"
+                    />
+                    <div className="text-left">
+                      <p className="text-xs font-bold text-white leading-none">
+                        {reel.profileName} <span className="text-gray-400 font-normal">and</span> {reel.coBrand}
+                      </p>
+                      <span className="text-[10px] text-gray-400 font-light">Tiruppur, India</span>
+                    </div>
+                  </div>
+                  <span className="text-[10px] text-gold hover:underline font-semibold flex items-center gap-1">
+                    View profile <ExternalLink className="w-3 h-3" />
+                  </span>
+                </div>
 
-            {/* Play Overlay Button */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-white">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gold hover:bg-gold/90 text-black flex items-center justify-center shadow-2xl transition-all transform group-hover:scale-110 relative">
-                {/* Animated surrounding ripples */}
-                <div className="absolute inset-0 rounded-full bg-gold/30 animate-ping"></div>
-                <Play className="w-6 h-6 sm:w-8 sm:h-8 fill-current ml-1" />
+                {/* Video Media Area */}
+                <div className="relative aspect-[9/14] bg-black overflow-hidden">
+                  <img 
+                    src={reel.thumbnail} 
+                    alt={reel.caption}
+                    className="w-full h-full object-cover opacity-75 group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+
+                  {/* Center Play Button */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-14 h-14 rounded-full bg-gold/90 text-black flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+                      <Play className="w-6 h-6 fill-current ml-0.5" />
+                    </div>
+                  </div>
+
+                  {/* Bottom Instagram Reel Overlay Content */}
+                  <div className="absolute bottom-3 left-3 right-3 text-left">
+                    <p className="text-xs text-white font-light leading-snug line-clamp-2 drop-shadow">
+                      {reel.caption}
+                    </p>
+                    <div className="flex items-center justify-between mt-2.5 pt-2 border-t border-white/10 text-[11px] text-gray-300">
+                      <span className="font-semibold text-gold">View more on Instagram</span>
+                      <span className="text-[10px] text-gray-400">❤️ {reel.likes} | 💬 {reel.comments}</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="text-center">
-                <p className="font-sans font-bold text-sm sm:text-base tracking-wider uppercase text-white drop-shadow-md">
-                  Mrs. Abirami - Scar Remodeling Testimonial
-                </p>
-                <p className="text-[10px] sm:text-xs text-gold font-medium mt-1 uppercase tracking-widest drop-shadow-md">
-                  Duration: 3m 42s | Clinical Outcome Verified
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 

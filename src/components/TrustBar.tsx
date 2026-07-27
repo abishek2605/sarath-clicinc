@@ -3,7 +3,7 @@ import { Gift, CalendarCheck, ShieldCheck, Award } from 'lucide-react';
 
 export default function TrustBar() {
   const trusts = [
-    { icon: Gift, text: '0 Consultation Fee' },
+    { icon: Gift, text: '₹99 Consultation Fee' },
     { icon: CalendarCheck, text: 'Same Day Appointment' },
     { icon: ShieldCheck, text: 'Advanced Treatments' },
     { icon: Award, text: 'Experienced Specialists' }

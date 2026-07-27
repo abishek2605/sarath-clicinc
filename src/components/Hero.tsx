@@ -33,7 +33,8 @@ export default function Hero({ onSuccess }: HeroProps) {
     name: '',
     phone: '',
     treatment: '',
-    preferredTime: ''
+    preferredTime: '',
+    consultationType: 'IN-CLINIC' as 'ONLINE' | 'IN-CLINIC'
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -86,6 +87,7 @@ export default function Hero({ onSuccess }: HeroProps) {
         phone: formData.phone.trim(),
         treatment: formData.treatment,
         preferredTime: formData.preferredTime,
+        consultationType: formData.consultationType,
         submittedAt: new Date().toISOString()
       };
 
@@ -102,26 +104,24 @@ export default function Hero({ onSuccess }: HeroProps) {
         name: '',
         phone: '',
         treatment: '',
-        preferredTime: ''
+        preferredTime: '',
+        consultationType: 'IN-CLINIC'
       });
     }, 1200);
-  };
-
-  const scrollToTreatments = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const target = document.querySelector('#treatments');
-    if (target) {
-      const offset = 80;
-      const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-    }
   };
 
   return (
     <section id="home" className="relative min-h-screen pt-24 lg:pt-32 pb-16 flex items-center justify-center bg-[#111111] overflow-hidden">
       {/* Background with luxury black overlay, clinical blue-grey glows, and golden particle grids */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-overlay pointer-events-none" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1920&q=80')" }}></div>
+        {/* Subtle Luxury Grid Overlay */}
+        <div 
+          className="absolute inset-0 opacity-[0.05] pointer-events-none" 
+          style={{
+            backgroundImage: `linear-gradient(to right, rgba(212, 175, 55, 0.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(212, 175, 55, 0.5) 1px, transparent 1px)`,
+            backgroundSize: '48px 48px'
+          }}
+        ></div>
         {/* Subtle Golden Glow Circle */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full bg-gold/5 blur-[120px] pointer-events-none"></div>
         {/* Clinical Teal-Blue Glow */}
@@ -133,22 +133,25 @@ export default function Hero({ onSuccess }: HeroProps) {
           
           {/* Hero Content Left */}
           <div className="lg:col-span-7 flex flex-col text-left space-y-6" id="hero-left-content">
-            {/* Zero Fee Consultation Badge + Google Rating */}
-            <div className="flex flex-wrap items-center gap-3" id="hero-trust-badges-wrapper">
-              <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-full px-4 py-1.5 w-fit" id="zero-fee-badge">
+            {/* Consultation Fee Badge & Rating */}
+            <div className="flex flex-wrap items-center gap-2" id="hero-badges">
+              <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/40 rounded-full px-4 py-1.5 w-fit" id="fee-badge">
                 <Sparkles className="w-3.5 h-3.5 text-gold animate-pulse" />
-                <span className="text-[10px] sm:text-xs font-semibold text-gold tracking-widest uppercase">
-                  Zero Consultation Fee (Limited Offer)
+                <span className="text-[11px] sm:text-xs font-bold text-gold tracking-widest uppercase">
+                  ₹99 CONSULTATION FEE (PAY AT CLINIC)
                 </span>
               </div>
-              
-              <div className="inline-flex items-center gap-1.5 bg-[#1C1C1C] border border-gray-800 rounded-full px-3.5 py-1.5 text-xs text-gray-300 font-medium" id="google-rating-badge">
-                <span className="text-gold font-bold">4.9 ★★★★★</span>
-                <span className="text-gray-500 font-light text-[11px]">(1,200+ Reviews in Tiruppur)</span>
+              <div className="inline-flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-full px-3 py-1.5 w-fit text-[11px] text-gray-300">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-ping"></span>
+                💻 Online & 🏥 In-Clinic Available
+              </div>
+              <div className="inline-flex items-center gap-1.5 bg-black/60 border border-gold/20 rounded-full px-3 py-1.5 w-fit text-[11px] text-gold font-semibold">
+                <span>4.9 ★★★★★</span>
+                <span className="text-gray-400 font-normal">(1,200+ Patient Success Stories)</span>
               </div>
             </div>
 
-            {/* Headline H1 with highly optimized Google Ads keyword triggers */}
+            {/* Headline H1 */}
             <h1 className="font-sans font-bold text-3xl sm:text-4xl md:text-5xl lg:text-5xl text-white leading-tight tracking-tight" id="hero-heading">
               Best Skin & Hair <br className="hidden md:inline" />
               Care Clinic in <span className="text-gold relative inline-block">
@@ -157,51 +160,49 @@ export default function Hero({ onSuccess }: HeroProps) {
               </span>
             </h1>
 
-            {/* Subheadline packed with high-intent keywords (Warts & Mole, PRP, GFC, Acne Scars) to score perfect Ad Relevance */}
+            {/* Subheadline */}
             <p className="font-sans text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl font-light leading-relaxed" id="hero-subheading">
-              Advanced, FDA-approved clinical solutions for <span className="text-white font-medium">Warts & Mole Removal</span>, <span className="text-white font-medium">PRP & GFC Hair Growth</span>, and <span className="text-white font-medium">Acne Scar treatments</span>. Get treated by senior dermatologists in Tiruppur. Pay <span className="text-gold font-bold">₹0 consultation fee</span> today.
+              Advanced, FDA-approved clinical solutions for Warts & Mole Removal, PRP & GFC Hair Growth, and Acne Scar treatments. Get treated by senior dermatologists in Tiruppur. Consultation fee just <span className="text-gold font-bold">₹99 payable at the clinic</span>.
             </p>
 
-            {/* High intent keyword chips for search crawlers (Ad Relevance optimization) */}
-            <div className="flex flex-wrap gap-2 text-[10px] text-gray-400 font-mono tracking-wide" id="search-intent-keywords">
-              <span className="bg-black/40 border border-gray-800/80 px-2.5 py-1 rounded">#SkinSpecialistTiruppur</span>
-              <span className="bg-black/40 border border-gray-800/80 px-2.5 py-1 rounded">#WartsTreatment</span>
-              <span className="bg-black/40 border border-gray-800/80 px-2.5 py-1 rounded">#GFCHairTherapy</span>
-              <span className="bg-black/40 border border-gray-800/80 px-2.5 py-1 rounded">#AcneScarRemodeling</span>
+            {/* Treatment Hashtags */}
+            <div className="flex flex-wrap gap-2 text-[11px] font-medium text-gray-400">
+              <span className="bg-black/60 border border-gray-800 px-2.5 py-1 rounded text-gold/90">#SkinSpecialistTiruppur</span>
+              <span className="bg-black/60 border border-gray-800 px-2.5 py-1 rounded">#WartsTreatment</span>
+              <span className="bg-black/60 border border-gray-800 px-2.5 py-1 rounded">#GFCHairTherapy</span>
+              <span className="bg-black/60 border border-gray-800 px-2.5 py-1 rounded">#AcneScarRemodeling</span>
             </div>
 
-            {/* CTAs with friction-reducers */}
-            <div className="space-y-3 pt-1">
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href="#booking-form"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.getElementById('name-input')?.focus();
-                  }}
-                  className="bg-gold hover:bg-gold/90 text-black font-bold text-xs sm:text-sm uppercase tracking-widest py-4 px-8 rounded transition-all duration-300 transform hover:scale-[1.02] shadow-lg shadow-gold/20 flex items-center gap-2 cursor-pointer"
-                  id="hero-book-btn"
-                >
-                  <Calendar className="w-4 h-4" />
-                  Book Free Consultation
-                </a>
-                
-                <a
-                  href="tel:09092136969"
-                  className="bg-transparent border border-gray-600 hover:border-gold hover:text-gold text-white font-bold text-xs sm:text-sm uppercase tracking-widest py-4 px-8 rounded transition-all duration-300 flex items-center gap-2"
-                  id="hero-call-btn"
-                >
-                  <Phone className="w-4 h-4" />
-                  Call Now
-                </a>
-              </div>
+            {/* CTAs */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <a
+                href="#booking-form"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('name-input')?.focus();
+                }}
+                className="bg-gold hover:bg-gold/90 text-black font-bold text-xs sm:text-sm uppercase tracking-widest py-4 px-8 rounded transition-all duration-300 transform hover:scale-[1.02] shadow-lg shadow-gold/20 flex items-center gap-2 cursor-pointer"
+                id="hero-book-btn"
+              >
+                <Calendar className="w-4 h-4" />
+                Book Consultation
+              </a>
               
-              {/* Frictionless booking cues */}
-              <p className="text-[11px] text-gray-500 font-light flex items-center gap-1.5" id="frictionless-booking-cue">
-                <span>⏱️ Average booking time: <span className="text-gold font-medium">24 seconds</span></span>
-                <span className="text-gray-800">•</span>
-                <span>⚡ Clinical call callback: <span className="text-gold font-medium">Within 15 mins</span></span>
-              </p>
+              <a
+                href="tel:09092136969"
+                className="bg-transparent border border-gray-600 hover:border-gold hover:text-gold text-white font-bold text-xs sm:text-sm uppercase tracking-widest py-4 px-8 rounded transition-all duration-300 flex items-center gap-2"
+                id="hero-call-btn"
+              >
+                <Phone className="w-4 h-4" />
+                Call Now
+              </a>
+            </div>
+
+            {/* Micro stats banner */}
+            <div className="flex flex-wrap items-center gap-2 text-xs text-gray-400 font-light pt-1">
+              <span>⏱️ Average booking time: 24 seconds</span>
+              <span>•</span>
+              <span>⚡ Clinical call callback: Within 15 mins</span>
             </div>
 
             {/* Trust Badges Bar */}
@@ -243,19 +244,24 @@ export default function Hero({ onSuccess }: HeroProps) {
           {/* Lead Form Right - Above the Fold */}
           <div className="lg:col-span-5 w-full" id="booking-form-container">
             <div className="bg-[#181818] border border-gold/25 rounded-lg p-6 sm:p-8 shadow-2xl relative" id="booking-form">
-              {/* Dynamic decorative golden corner borders to emphasize custom premium layout */}
+              {/* Dynamic decorative golden corner borders */}
               <div className="absolute -top-[1px] -left-[1px] w-4 h-4 border-t-2 border-l-2 border-gold rounded-tl"></div>
               <div className="absolute -top-[1px] -right-[1px] w-4 h-4 border-t-2 border-r-2 border-gold rounded-tr"></div>
               <div className="absolute -bottom-[1px] -left-[1px] w-4 h-4 border-b-2 border-l-2 border-gold rounded-bl"></div>
               <div className="absolute -bottom-[1px] -right-[1px] w-4 h-4 border-b-2 border-r-2 border-gold rounded-br"></div>
 
               <div className="text-center mb-6">
+                <span className="text-xs font-bold text-gold uppercase tracking-wider block mb-1">
+                  ⚡ ₹99 Consultation Appointment
+                </span>
                 <h3 className="font-sans font-bold text-lg sm:text-xl text-white tracking-wide">
-                  Schedule Appointment
+                  Schedule Consultation
                 </h3>
-                <p className="text-xs text-gray-400 mt-1">
-                  Secure your limited free consultation slot
-                </p>
+                <div className="flex items-center justify-center gap-2 mt-1">
+                  <span className="text-xs text-gray-400">Senior Dermatologist Fee:</span>
+                  <span className="text-gold font-bold text-base">₹99</span>
+                  <span className="text-gray-500 line-through text-xs">₹400</span>
+                </div>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4" id="lead-capture-form">
@@ -335,6 +341,37 @@ export default function Hero({ onSuccess }: HeroProps) {
                   )}
                 </div>
 
+                {/* Consultation Type Toggle */}
+                <div>
+                  <label className="block text-[11px] font-medium uppercase tracking-wider text-gray-400 mb-1.5">
+                    Consultation Type
+                  </label>
+                  <div className="grid grid-cols-2 gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setFormData(prev => ({ ...prev, consultationType: 'ONLINE' }))}
+                      className={`py-2 px-3 rounded text-xs font-bold uppercase tracking-wider transition-all cursor-pointer border ${
+                        formData.consultationType === 'ONLINE'
+                          ? 'bg-gold text-black border-gold'
+                          : 'bg-[#202020] text-gray-400 border-gray-700 hover:text-white'
+                      }`}
+                    >
+                      ONLINE
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setFormData(prev => ({ ...prev, consultationType: 'IN-CLINIC' }))}
+                      className={`py-2 px-3 rounded text-xs font-bold uppercase tracking-wider transition-all cursor-pointer border ${
+                        formData.consultationType === 'IN-CLINIC'
+                          ? 'bg-gold text-black border-gold'
+                          : 'bg-[#202020] text-gray-400 border-gray-700 hover:text-white'
+                      }`}
+                    >
+                      IN-CLINIC
+                    </button>
+                  </div>
+                </div>
+
                 {/* Preferred Time */}
                 <div>
                   <label htmlFor="time-input" className="block text-[11px] font-medium uppercase tracking-wider text-gray-400 mb-1.5">
@@ -381,14 +418,16 @@ export default function Hero({ onSuccess }: HeroProps) {
                   ) : (
                     <>
                       <Calendar className="w-4 h-4" />
-                      Book My Free Consultation
+                      RESERVE ₹99 CONSULTATION
                     </>
                   )}
                 </button>
 
-                <p className="text-[10px] text-center text-gray-500 mt-3 leading-normal">
-                  🔒 Your information is fully confidential under medical privacy.
-                </p>
+                <div className="text-[11px] text-center text-gray-400 mt-3 space-y-1.5 font-light">
+                  <p className="text-gray-300">₹99 consultation fee is payable at the clinic after your first clinical evaluation.</p>
+                  <p className="text-gold font-semibold">🔥 Only 4 slots left for today</p>
+                  <p>🔒 Medical Privacy Guaranteed. Callback within 15 mins.</p>
+                </div>
               </form>
             </div>
           </div>

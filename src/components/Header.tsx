@@ -8,21 +8,12 @@ interface HeaderProps {
 export function Logo() {
   return (
     <div className="flex items-center gap-3">
-      {/* Beautiful High-Fidelity Custom SVG Logo representing the uploaded brand */}
-      <div className="relative flex items-center justify-center w-12 h-12 border border-gold/30 rounded p-1 bg-black/40 backdrop-blur-sm">
-        <svg className="w-10 h-10" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Outer elegant frame */}
-          <rect x="6" y="6" width="108" height="108" rx="3" stroke="#C9A227" strokeWidth="1.5" />
-          {/* Stylized curve B */}
-          <path d="M35 30H65C80 30 90 38 90 48C90 56 82 62 70 62C85 62 95 68 95 80C95 92 82 100 65 100H35V30Z" stroke="#C9A227" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M35 62H70" stroke="#C9A227" strokeWidth="4" />
-          {/* Love/Leaf gold accent overlaying the B */}
-          <path d="M25 45C20 30 40 20 48 35C55 20 75 30 70 45" stroke="#C9A227" strokeWidth="2" strokeLinecap="round" opacity="0.8" />
-          {/* Registered trademark symbol R */}
-          <circle cx="102" cy="18" r="6" stroke="#C9A227" strokeWidth="1" />
-          <text x="99.5" y="21.5" fill="#C9A227" fontSize="8" fontFamily="sans-serif" fontWeight="bold">R</text>
-        </svg>
-      </div>
+      <img 
+        src="/bonitaa-logo.png" 
+        alt="Bonitaa Skin and Hair Care" 
+        className="h-10 md:h-12 w-auto object-contain"
+        referrerPolicy="no-referrer"
+      />
       <div className="flex flex-col">
         <span className="font-sans font-bold tracking-[0.25em] text-lg md:text-xl text-white leading-none">BONITAA</span>
         <span className="font-sans text-[7px] md:text-[8px] tracking-[0.35em] text-gold uppercase font-semibold mt-1">Skin and Hair Care</span>
@@ -48,14 +39,12 @@ export default function Header({ onBookClick }: HeaderProps) {
   const primaryLinks = [
     { name: 'Home', href: '#home' },
     { name: 'Treatments', href: '#treatments' },
-    { name: 'Before & After', href: '#before-after' },
-    { name: 'Specialist', href: '#specialist' }
+    { name: 'Why Choose Us', href: '#why-choose' },
+    { name: 'Before & After', href: '#before-after' }
   ];
 
   const moreLinks = [
-    { name: 'Why Choose Us', href: '#why-choose' },
-    { name: 'Reviews', href: '#reviews' },
-    { name: 'FAQ', href: '#faq' },
+    { name: 'Patient Stories', href: '#reviews' },
     { name: 'Contact', href: '#contact' }
   ];
 
@@ -187,7 +176,7 @@ export default function Header({ onBookClick }: HeaderProps) {
               id="header-book-cta"
             >
               <Calendar className="w-4 h-4" />
-              Book Free Consult
+              Book Consultation
             </button>
           </div>
 

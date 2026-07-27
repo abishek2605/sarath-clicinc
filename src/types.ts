@@ -5,6 +5,7 @@ export interface Treatment {
   duration: string;
   tag?: string;
   image: string;
+  price?: string;
 }
 
 export interface Review {
@@ -27,5 +28,31 @@ export interface LeadSubmission {
   phone: string;
   treatment: string;
   preferredTime?: string;
+  consultationType?: 'ONLINE' | 'IN-CLINIC';
   submittedAt: string;
 }
+
+export interface BeforeAfterCardItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  category: 'hair' | 'skin';
+  beforeImg?: string;
+  afterImg?: string;
+  fullImg?: string;
+  sessionsBadge: string;
+  treatmentTag: string;
+}
+
+export interface VideoReelItem {
+  id: string;
+  profileName: string;
+  coBrand: string;
+  profilePic: string;
+  thumbnail: string;
+  caption: string;
+  likes: string;
+  comments: string;
+  instagramUrl: string;
+}
+
