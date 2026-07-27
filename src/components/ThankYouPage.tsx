@@ -119,8 +119,8 @@ export default function ThankYouPage({ lead, onReturnHome }: ThankYouPageProps) 
               Consultation Fee
             </span>
             <div className="text-right">
-              <span className="text-xs text-gold font-bold">₹99</span>
-              <span className="text-[10px] text-gray-400 block font-light">(Payable at clinic)</span>
+              <span className="text-xs text-gold font-bold">Pay at Clinic</span>
+              <span className="text-[10px] text-gray-400 block font-light">(Senior Dermatologist Evaluation)</span>
             </div>
           </div>
 
@@ -167,7 +167,7 @@ export default function ThankYouPage({ lead, onReturnHome }: ThankYouPageProps) 
           </a>
 
           <a
-            href="tel:09092136969"
+            href="tel:9092136969"
             className="w-full bg-black/60 border border-gray-700 hover:border-gold hover:text-gold text-white font-bold text-xs uppercase tracking-widest py-3.5 px-4 rounded transition-all duration-300 flex items-center justify-center gap-2"
             id="thankyou-call-btn"
           >

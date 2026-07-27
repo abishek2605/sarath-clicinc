@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
-import TrustBar from './components/TrustBar';
 import Hero from './components/Hero';
 import Treatments from './components/Treatments';
 import WhyChooseUs from './components/WhyChooseUs';
 import BeforeAfter from './components/BeforeAfter';
 import Testimonials from './components/Testimonials';
+import InstagramReels from './components/InstagramReels';
 import MapSection from './components/MapSection';
 import Footer from './components/Footer';
 import Popups from './components/Popups';
@@ -137,10 +137,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#111111] text-white font-sans antialiased overflow-x-hidden" id="bonitaa-root">
       
-      {/* 1. Google Ads Trust Bar above fold */}
-      <TrustBar />
-
-      {/* 2. Navigation Header */}
+      {/* 1. Navigation Header */}
       <Header onBookClick={handleGlobalBookClick} />
 
       {/* 3. Main content sections */}
@@ -153,13 +150,15 @@ export default function App() {
         
         <BeforeAfter />
         
+        <InstagramReels onBookClick={handleGlobalBookClick} />
+
         <Testimonials />
         
         <MapSection />
       </main>
 
       {/* 4. Elegant footer */}
-      <Footer onAdminClick={() => setShowAdminPortal(true)} />
+      <Footer />
 
       {/* 5. Smart popups for conversion optimization */}
       <Popups onBookClick={handleGlobalBookClick} onSuccess={handleLeadSuccess} />

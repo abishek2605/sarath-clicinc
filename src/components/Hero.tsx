@@ -139,7 +139,7 @@ export default function Hero({ onSuccess }: HeroProps) {
               <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/40 rounded-full px-4 py-1.5 w-fit" id="fee-badge">
                 <Sparkles className="w-3.5 h-3.5 text-gold animate-pulse" />
                 <span className="text-[11px] sm:text-xs font-bold text-gold tracking-widest uppercase">
-                  ₹99 CONSULTATION FEE (PAY AT CLINIC)
+                  DOCTOR CONSULTATION (PAY AT CLINIC)
                 </span>
               </div>
               <div className="inline-flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-full px-3 py-1.5 w-fit text-[11px] text-gray-300">
@@ -163,7 +163,7 @@ export default function Hero({ onSuccess }: HeroProps) {
 
             {/* Subheadline */}
             <p className="font-sans text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl font-light leading-relaxed" id="hero-subheading">
-              Advanced, FDA-approved clinical solutions for Warts & Mole Removal, PRP & GFC Hair Growth, and Acne Scar treatments. Get treated by senior dermatologists in Tiruppur. Consultation fee just <span className="text-gold font-bold">₹99 payable at the clinic</span>.
+              Advanced, FDA-approved clinical solutions for Warts & Mole Removal, PRP & GFC Hair Growth, and Acne Scar treatments. Get treated by senior dermatologists in Tiruppur. Consultation <span className="text-gold font-bold">payable at the clinic</span>.
             </p>
 
             {/* Treatment Hashtags */}
@@ -190,7 +190,7 @@ export default function Hero({ onSuccess }: HeroProps) {
               </a>
               
               <a
-                href="tel:09092136969"
+                href="tel:9092136969"
                 className="bg-transparent border border-gray-600 hover:border-gold hover:text-gold text-white font-bold text-xs sm:text-sm uppercase tracking-widest py-4 px-8 rounded transition-all duration-300 flex items-center gap-2"
                 id="hero-call-btn"
               >
@@ -253,15 +253,13 @@ export default function Hero({ onSuccess }: HeroProps) {
 
               <div className="text-center mb-6">
                 <span className="text-xs font-bold text-gold uppercase tracking-wider block mb-1">
-                  ⚡ ₹99 Consultation Appointment
+                  ⚡ Schedule Doctor Appointment
                 </span>
                 <h3 className="font-sans font-bold text-lg sm:text-xl text-white tracking-wide">
-                  Schedule Consultation
+                  Book Consultation
                 </h3>
                 <div className="flex items-center justify-center gap-2 mt-1">
-                  <span className="text-xs text-gray-400">Senior Dermatologist Fee:</span>
-                  <span className="text-gold font-bold text-base">₹99</span>
-                  <span className="text-gray-500 line-through text-xs">₹400</span>
+                  <span className="text-xs text-gray-400">Senior Dermatologist Evaluation</span>
                 </div>
               </div>
 
@@ -419,13 +417,13 @@ export default function Hero({ onSuccess }: HeroProps) {
                   ) : (
                     <>
                       <Calendar className="w-4 h-4" />
-                      RESERVE ₹99 CONSULTATION
+                      RESERVE CONSULTATION
                     </>
                   )}
                 </button>
 
                 <div className="text-[11px] text-center text-gray-400 mt-3 space-y-1.5 font-light">
-                  <p className="text-gray-300">₹99 consultation fee is payable at the clinic after your first clinical evaluation.</p>
+                  <p className="text-gray-300">Consultation fee is payable at the clinic after your first clinical evaluation.</p>
                   <p className="text-gold font-semibold">🔥 Only 4 slots left for today</p>
                   <p>🔒 Medical Privacy Guaranteed. Callback within 15 mins.</p>
                 </div>

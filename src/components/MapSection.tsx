@@ -59,8 +59,8 @@ export default function MapSection() {
                   <Phone className="w-4 h-4 text-gold shrink-0" />
                   <div>
                     <p className="text-gray-400 uppercase tracking-widest text-[9px] font-bold">Call Coordinator</p>
-                    <a href="tel:09092136969" className="text-black font-bold hover:text-gold transition-colors">
-                      090921 36969
+                    <a href="tel:9092136969" className="text-black font-bold hover:text-gold transition-colors">
+                      90921 36969
                     </a>
                   </div>
                 </div>

@@ -52,6 +52,7 @@ export default function Header({ onBookClick }: HeaderProps) {
   ];
 
   const moreLinks = [
+    { name: 'Instagram Reels', href: '#instagram-reels' },
     { name: 'Patient Stories', href: '#reviews' },
     { name: 'Contact', href: '#contact' }
   ];
@@ -164,7 +165,7 @@ export default function Header({ onBookClick }: HeaderProps) {
           {/* Contact & Book Button */}
           <div className="hidden sm:flex items-center gap-4">
             <a
-              href="tel:09092136969"
+              href="tel:9092136969"
               className="flex items-center gap-2 text-gray-300 hover:text-gold transition-colors duration-200 px-2 py-1 rounded"
               id="header-call-cta"
             >
@@ -173,7 +174,7 @@ export default function Header({ onBookClick }: HeaderProps) {
               </div>
               <div className="text-left">
                 <p className="text-[9px] uppercase tracking-wider text-gray-400">Call Specialist</p>
-                <p className="text-xs font-semibold text-white font-mono">090921 36969</p>
+                <p className="text-xs font-semibold text-white font-mono">90921 36969</p>
               </div>
             </a>
             
@@ -190,7 +191,7 @@ export default function Header({ onBookClick }: HeaderProps) {
           {/* Mobile Menu Trigger */}
           <div className="flex lg:hidden items-center gap-2 sm:gap-3">
             <a
-              href="tel:09092136969"
+              href="tel:9092136969"
               className="sm:hidden w-9 h-9 rounded border border-gold/20 flex items-center justify-center bg-black/40 text-gold"
               id="mobile-header-call-icon"
               aria-label="Call Specialist"
@@ -228,12 +229,12 @@ export default function Header({ onBookClick }: HeaderProps) {
 
           <div className="flex flex-col gap-3 mt-6 pt-4 border-t border-gray-900">
             <a
-              href="tel:09092136969"
+              href="tel:9092136969"
               className="flex items-center justify-center gap-2.5 border border-gold/30 text-gold font-bold py-3 px-4 rounded text-center text-xs uppercase tracking-widest active:bg-gold/10"
               id="mobile-drawer-call"
             >
               <Phone className="w-4 h-4" />
-              Call Specialist (090921 36969)
+              Call Specialist (90921 36969)
             </a>
             <button
               onClick={() => {

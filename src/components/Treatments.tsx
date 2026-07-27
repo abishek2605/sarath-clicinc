@@ -221,7 +221,7 @@ export default function Treatments({ onSelectTreatment }: TreatmentsProps) {
                 <div className="pt-6 mt-6 border-t border-gray-100 flex items-center justify-between">
                   <span className="text-[10px] text-gold uppercase tracking-widest font-semibold flex items-center gap-1">
                     <Zap className="w-3 h-3 text-gold shrink-0" />
-                    Doctor Consultation ₹99
+                    Doctor Consultation
                   </span>
                   
                   <button

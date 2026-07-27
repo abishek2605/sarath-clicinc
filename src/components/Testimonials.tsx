@@ -148,117 +148,25 @@ export default function Testimonials() {
           ))}
         </div>
 
-        {/* Video Patient Stories (Instagram Reels style) */}
-        <div className="mt-16" id="video-reels-section">
-          <div className="text-center mb-10">
-            <span className="text-xs font-semibold text-gold uppercase tracking-widest block mb-2">
-              Video Patient Stories
-            </span>
-            <h3 className="font-sans font-bold text-xl sm:text-2xl text-gray-900 flex items-center justify-center gap-2">
-              <Video className="w-5 h-5 text-gold" />
-              Watch Real Patient Experiences & Clinic Tours
-            </h3>
-            <p className="text-xs text-gray-500 mt-2 font-light">
-              Watch real, unedited experiences and clinic walkthroughs from local patients.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6" id="instagram-reels-grid">
-            {[
-              {
-                id: 'reel-1',
-                profileName: 'tirupur_com',
-                coBrand: 'bonitaa_tiruppur',
-                profilePic: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80',
-                thumbnail: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80',
-                caption: 'Living with hair loss for 2+ years? See how Bonitaa Tiruppur restored density in 4 sessions.',
-                likes: '1.4k',
-                comments: '82'
-              },
-              {
-                id: 'reel-2',
-                profileName: 'tirupur_foodie',
-                coBrand: 'bonitaa_tiruppur',
-                profilePic: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80',
-                thumbnail: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80',
-                caption: "Take a tour of Tiruppur's most luxurious skin & hair care clinic at 60 Feet Road.",
-                likes: '2.1k',
-                comments: '143'
-              },
-              {
-                id: 'reel-3',
-                profileName: 'tales_of_kousi',
-                coBrand: 'bonitaa_tiruppur',
-                profilePic: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80',
-                thumbnail: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80',
-                caption: 'Real Acne Scar Remodeling results with subcision & collagen induction therapy.',
-                likes: '3.8k',
-                comments: '210'
+        {/* Link Banner to Full Instagram Reels Gallery */}
+        <div className="mt-12 text-center" id="video-reels-section">
+          <a
+            href="#instagram-reels"
+            onClick={(e) => {
+              e.preventDefault();
+              const target = document.querySelector('#instagram-reels');
+              if (target) {
+                const offset = 70;
+                const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
               }
-            ].map((reel) => (
-              <div 
-                key={reel.id}
-                onClick={() => {
-                  const target = document.querySelector('#home');
-                  if (target) {
-                    const offset = 80;
-                    const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
-                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-                    document.getElementById('name-input')?.focus();
-                  }
-                }}
-                className="bg-black text-white rounded-xl overflow-hidden border border-gray-800 shadow-xl group cursor-pointer hover:border-gold/40 transition-all duration-300 flex flex-col justify-between"
-              >
-                {/* Reel Header */}
-                <div className="p-3.5 flex items-center justify-between border-b border-gray-900 bg-black/90">
-                  <div className="flex items-center gap-2.5">
-                    <img 
-                      src={reel.profilePic} 
-                      alt={reel.profileName} 
-                      className="w-8 h-8 rounded-full object-cover border border-gold/40"
-                    />
-                    <div className="text-left">
-                      <p className="text-xs font-bold text-white leading-none">
-                        {reel.profileName} <span className="text-gray-400 font-normal">and</span> {reel.coBrand}
-                      </p>
-                      <span className="text-[10px] text-gray-400 font-light">Tiruppur, India</span>
-                    </div>
-                  </div>
-                  <span className="text-[10px] text-gold hover:underline font-semibold flex items-center gap-1">
-                    View profile <ExternalLink className="w-3 h-3" />
-                  </span>
-                </div>
-
-                {/* Video Media Area */}
-                <div className="relative aspect-[9/14] bg-black overflow-hidden">
-                  <img 
-                    src={reel.thumbnail} 
-                    alt={reel.caption}
-                    className="w-full h-full object-cover opacity-75 group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-
-                  {/* Center Play Button */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-14 h-14 rounded-full bg-gold/90 text-black flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-                      <Play className="w-6 h-6 fill-current ml-0.5" />
-                    </div>
-                  </div>
-
-                  {/* Bottom Instagram Reel Overlay Content */}
-                  <div className="absolute bottom-3 left-3 right-3 text-left">
-                    <p className="text-xs text-white font-light leading-snug line-clamp-2 drop-shadow">
-                      {reel.caption}
-                    </p>
-                    <div className="flex items-center justify-between mt-2.5 pt-2 border-t border-white/10 text-[11px] text-gray-300">
-                      <span className="font-semibold text-gold">View more on Instagram</span>
-                      <span className="text-[10px] text-gray-400">❤️ {reel.likes} | 💬 {reel.comments}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+            }}
+            className="inline-flex items-center gap-3 bg-[#111] hover:bg-black text-white font-bold text-xs uppercase tracking-widest py-4 px-8 rounded-full border border-gold/30 hover:border-gold transition-all duration-300 shadow-xl cursor-pointer group"
+          >
+            <Video className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" />
+            <span>Explore All 6 Embedded Clinical Instagram Reels</span>
+            <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-gold" />
+          </a>
         </div>
 
       </div>

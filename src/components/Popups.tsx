@@ -225,7 +225,7 @@ export default function Popups({ onBookClick, onSuccess }: PopupsProps) {
             <div>
               <p className="font-sans font-bold text-xs uppercase tracking-widest text-gold">Limited Slots Left</p>
               <p className="font-sans font-semibold text-sm text-white mt-1 leading-tight">
-                ₹99 Consultation Fee Active Today
+                Doctor Consultation Slots Active Today
               </p>
               <p className="text-[11px] text-gray-400 mt-1 font-light leading-relaxed">
                 Secure an evaluation by Dr. Priya for advanced skin and hair restorations.
@@ -263,7 +263,7 @@ export default function Popups({ onBookClick, onSuccess }: PopupsProps) {
       <div className="fixed bottom-0 left-0 w-full z-40 bg-[#0E0E0E]/95 backdrop-blur shadow-lg border-t border-gold/20 grid grid-cols-3 sm:hidden pb-[env(safe-area-inset-bottom,0px)]" id="mobile-sticky-cta">
         {/* Call Now Button */}
         <a 
-          href="tel:09092136969"
+          href="tel:9092136969"
           className="flex flex-col items-center justify-center gap-1 py-3 border-r border-gray-900 hover:bg-black transition-colors"
           id="mobile-sticky-call"
         >

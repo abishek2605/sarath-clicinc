@@ -189,7 +189,7 @@ export default function BeforeAfter() {
               Ready to see your own transformation?
             </h3>
             <p className="text-xs text-gray-400 mt-1 font-light">
-              Book a ₹99 consultation today and get expert skin & hair diagnostic evaluation.
+              Book a consultation today and get expert skin & hair diagnostic evaluation.
             </p>
           </div>
           <button

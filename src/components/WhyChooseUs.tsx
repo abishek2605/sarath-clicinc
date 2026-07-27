@@ -5,7 +5,7 @@ export default function WhyChooseUs() {
   const reasons = [
     {
       icon: Award,
-      title: 'Experienced Specialists',
+      title: 'Certified Dermatologists',
       description: 'Our certified medical dermatologists and clinical trichologists possess over 10+ years of cumulative expertise in skin remodeling and hair restoration.'
     },
     {
@@ -49,7 +49,7 @@ export default function WhyChooseUs() {
     { number: '12,000+', label: 'Happy Patients' },
     { number: '10+', label: 'Years Experience' },
     { number: '98.7%', label: 'Success Rate' },
-    { number: '₹99', label: 'Consultation Fee' }
+    { number: '4.9★', label: 'Patient Rating' }
   ];
 
   return (

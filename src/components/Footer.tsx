@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Logo } from './Header';
-import { Phone, MapPin, Globe, Lock, ChevronDown, BookOpen, ShieldCheck, Activity, X } from 'lucide-react';
+import { Phone, MapPin, Globe, ChevronDown, BookOpen, ShieldCheck, Activity, X } from 'lucide-react';
 import { FaInstagram, FaFacebookF, FaWhatsapp, FaMapMarkerAlt } from 'react-icons/fa';
 
 const WhatsappIcon = FaWhatsapp as unknown as React.FC<{ className?: string }>;
@@ -9,7 +9,7 @@ const FacebookIcon = FaFacebookF as unknown as React.FC<{ className?: string }>;
 const MapMarkerIcon = FaMapMarkerAlt as unknown as React.FC<{ className?: string }>;
 
 interface FooterProps {
-  onAdminClick: () => void;
+  onAdminClick?: () => void;
 }
 
 export default function Footer({ onAdminClick }: FooterProps) {
@@ -144,8 +144,8 @@ export default function Footer({ onAdminClick }: FooterProps) {
                 
                 <div className="flex items-center gap-2 pt-1">
                   <Phone className="w-4 h-4 text-gold shrink-0" />
-                  <a href="tel:09092136969" className="hover:text-gold font-bold text-gray-200 transition-colors p-1 rounded">
-                    090921 36969
+                  <a href="tel:9092136969" className="hover:text-gold font-bold text-gray-200 transition-colors p-1 rounded">
+                    90921 36969
                   </a>
                 </div>
               </div>
@@ -222,15 +222,6 @@ export default function Footer({ onAdminClick }: FooterProps) {
               className="hover:text-gold transition-colors cursor-pointer text-[10px]"
             >
               Terms of Use
-            </button>
-            <span>•</span>
-            <button 
-              onClick={onAdminClick}
-              className="text-gray-600 hover:text-gold font-semibold transition-all flex items-center gap-1 cursor-pointer py-1 px-2 rounded hover:bg-[#111]"
-              id="footer-staff-portal"
-            >
-              <Lock className="w-3 h-3" />
-              Staff Portal
             </button>
           </div>
         </div>
