@@ -245,13 +245,14 @@ export default function Popups({ onBookClick, onSuccess }: PopupsProps) {
         </div>
       )}
 
-      {/* Floating Desktop WhatsApp Chat Button */}
+      {/* Floating WhatsApp Action Button across all viewports */}
       <a
-        href={whatsAppLink}
+        href="https://wa.me/919092136969"
         target="_blank"
         rel="noreferrer"
-        className="hidden sm:flex fixed bottom-6 right-6 z-40 bg-green-600 hover:bg-green-500 text-white p-3.5 rounded-full shadow-2xl border border-white/20 items-center gap-2.5 transition-all transform hover:scale-105 group"
-        id="desktop-floating-whatsapp"
+        aria-label="Chat with us on WhatsApp"
+        className="flex fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-50 bg-green-600 hover:bg-green-500 text-white p-3.5 rounded-full shadow-2xl border border-white/20 items-center gap-2.5 transition-all transform hover:scale-105 active:scale-95 group"
+        id="floating-whatsapp-btn"
       >
         <WhatsappIcon className="w-6 h-6 text-white" />
         <span className="text-xs font-bold tracking-wider uppercase pr-1 hidden group-hover:inline transition-all">

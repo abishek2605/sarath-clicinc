@@ -112,7 +112,7 @@ export default function Hero({ onSuccess }: HeroProps) {
   };
 
   return (
-    <section id="home" className="relative min-h-screen pt-24 lg:pt-32 pb-16 flex items-center justify-center bg-[#111111] overflow-hidden">
+    <section id="home" className="relative min-h-[calc(100vh-120px)] pt-8 sm:pt-12 lg:pt-16 pb-16 flex items-center justify-center bg-[#111111] overflow-hidden">
       {/* Background with luxury black overlay, clinical blue-grey glows, and golden particle grids */}
       <div className="absolute inset-0 z-0">
         {/* Subtle Luxury Grid Overlay */}
@@ -139,12 +139,12 @@ export default function Hero({ onSuccess }: HeroProps) {
               <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/40 rounded-full px-4 py-1.5 w-fit" id="fee-badge">
                 <Sparkles className="w-3.5 h-3.5 text-gold animate-pulse" />
                 <span className="text-[11px] sm:text-xs font-bold text-gold tracking-widest uppercase">
-                  DOCTOR CONSULTATION (PAY AT CLINIC)
+                  ₹99 DOCTOR CONSULTATION FEE
                 </span>
               </div>
               <div className="inline-flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-full px-3 py-1.5 w-fit text-[11px] text-gray-300">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-ping"></span>
-                💻 Online & 🏥 In-Clinic Available
+                🗓️ Same Day Appointment
               </div>
               <div className="inline-flex items-center gap-1.5 bg-black/60 border border-gold/20 rounded-full px-3 py-1.5 w-fit text-[11px] text-gold font-semibold">
                 <span>4.9 ★★★★★</span>
@@ -208,35 +208,35 @@ export default function Hero({ onSuccess }: HeroProps) {
 
             {/* Trust Badges Bar */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-gray-800" id="hero-trust-indicators">
-              <div className="flex items-center gap-2" id="indicator-doctors">
-                <Users className="w-5 h-5 text-gold shrink-0" />
+              <div className="flex items-center gap-2" id="indicator-fee">
+                <CheckCircle2 className="w-5 h-5 text-gold shrink-0" />
                 <div className="text-left">
-                  <p className="text-[10px] uppercase tracking-wider text-gray-400 leading-none">Experience</p>
-                  <p className="text-xs font-semibold text-white mt-1">Expert Specialists</p>
+                  <p className="text-[10px] uppercase tracking-wider text-gray-400 leading-none">Affordable Care</p>
+                  <p className="text-xs font-semibold text-white mt-1">₹99 Consultation Fee</p>
                 </div>
               </div>
               
-              <div className="flex items-center gap-2" id="indicator-tech">
+              <div className="flex items-center gap-2" id="indicator-sameday">
                 <Shield className="w-5 h-5 text-gold shrink-0" />
                 <div className="text-left">
-                  <p className="text-[10px] uppercase tracking-wider text-gray-400 leading-none">Technology</p>
-                  <p className="text-xs font-semibold text-white mt-1">FDA Approved Tech</p>
+                  <p className="text-[10px] uppercase tracking-wider text-gray-400 leading-none">Fast Booking</p>
+                  <p className="text-xs font-semibold text-white mt-1">Same Day Appointment</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2" id="indicator-care">
+              <div className="flex items-center gap-2" id="indicator-tech">
                 <Award className="w-5 h-5 text-gold shrink-0" />
                 <div className="text-left">
-                  <p className="text-[10px] uppercase tracking-wider text-gray-400 leading-none">Approach</p>
-                  <p className="text-xs font-semibold text-white mt-1">Personalized Care</p>
+                  <p className="text-[10px] uppercase tracking-wider text-gray-400 leading-none">Clinical Tech</p>
+                  <p className="text-xs font-semibold text-white mt-1">Advanced Treatments</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2" id="indicator-safety">
-                <CheckCircle2 className="w-5 h-5 text-gold shrink-0" />
+              <div className="flex items-center gap-2" id="indicator-doctors">
+                <Users className="w-5 h-5 text-gold shrink-0" />
                 <div className="text-left">
-                  <p className="text-[10px] uppercase tracking-wider text-gray-400 leading-none">Safety</p>
-                  <p className="text-xs font-semibold text-white mt-1">100% Sterile</p>
+                  <p className="text-[10px] uppercase tracking-wider text-gray-400 leading-none">Dermatologists</p>
+                  <p className="text-xs font-semibold text-white mt-1">Experienced Specialists</p>
                 </div>
               </div>
             </div>

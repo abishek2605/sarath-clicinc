@@ -88,8 +88,10 @@ export default function Header({ onBookClick }: HeaderProps) {
   };
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 pt-[env(safe-area-inset-top,0px)] ${
-      isScrolled ? 'bg-[#111111]/95 backdrop-blur-md shadow-lg border-b border-gold/10 py-2.5' : 'bg-transparent py-4 md:py-5'
+    <header className={`sticky top-0 left-0 w-full z-50 transition-all duration-300 pt-[env(safe-area-inset-top,0px)] ${
+      isScrolled 
+        ? 'bg-[#080808]/98 backdrop-blur-md shadow-2xl border-b border-gold/30 py-2.5' 
+        : 'bg-[#0D0D0D] border-b border-gold/20 shadow-xl py-3 md:py-4'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
