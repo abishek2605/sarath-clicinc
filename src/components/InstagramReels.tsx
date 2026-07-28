@@ -1,9 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { ExternalLink, ChevronLeft, ChevronRight, Maximize2, Grid, Calendar, X, ChevronUp, ChevronDown, Sparkles } from 'lucide-react';
-import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa';
 
 const InstagramIcon = FaInstagram as unknown as React.FC<{ className?: string }>;
-const WhatsappIcon = FaWhatsapp as unknown as React.FC<{ className?: string }>;
 
 interface ReelItem {
   id: string;
@@ -408,15 +407,13 @@ export default function InstagramReels({ onBookClick }: InstagramReelsProps) {
               <span>Follow Profile</span>
             </a>
             
-            <a
-              href="https://wa.me/919092136969?text=Hi%20Bonitaa%20Clinic,%20I%20saw%20your%20Instagram%20reels%20and%20want%20to%20book%20a%20consultation."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 md:flex-none bg-green-600 hover:bg-green-500 text-white font-bold text-xs uppercase tracking-widest py-3 px-5 rounded-lg text-center transition-all flex items-center justify-center gap-2 shadow-lg"
+            <button
+              onClick={onBookClick}
+              className="flex-1 md:flex-none bg-gold hover:bg-gold/90 text-black font-bold text-xs uppercase tracking-widest py-3 px-5 rounded-lg text-center transition-all flex items-center justify-center gap-2 shadow-lg cursor-pointer"
             >
-              <WhatsappIcon className="w-4 h-4" />
-              <span>WhatsApp Us</span>
-            </a>
+              <Calendar className="w-4 h-4" />
+              <span>Book Consultation</span>
+            </button>
           </div>
         </div>
 
@@ -514,13 +511,10 @@ export default function InstagramReels({ onBookClick }: InstagramReelsProps) {
                   </button>
                 ) : (
                   <a
-                    href="https://wa.me/919092136969"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 bg-green-600 hover:bg-green-500 text-white text-xs font-bold py-2.5 px-4 rounded-lg transition-all flex items-center justify-center gap-1.5 uppercase tracking-wider"
+                    href="tel:9092136969"
+                    className="flex-1 bg-gold hover:bg-gold/90 text-black text-xs font-bold py-2.5 px-4 rounded-lg transition-all flex items-center justify-center gap-1.5 uppercase tracking-wider"
                   >
-                    <WhatsappIcon className="w-4 h-4" />
-                    <span>WhatsApp</span>
+                    <span>Call Clinic</span>
                   </a>
                 )}
               </div>

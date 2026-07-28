@@ -144,20 +144,26 @@ export default function App() {
       {/* 2. Key Trust Bar */}
       <TrustBar />
 
-      {/* 3. Main content sections */}
+      {/* 3. Main content sections with distinct visual separators */}
       <main id="main-content">
         <Hero onSuccess={handleLeadSuccess} />
         
+        <div className="section-divider-gold"></div>
         <Treatments onSelectTreatment={handleSelectTreatment} />
         
+        <div className="section-divider-gold"></div>
         <WhyChooseUs />
         
+        <div className="section-divider-gold"></div>
         <BeforeAfter />
         
+        <div className="section-divider-gold"></div>
         <InstagramReels onBookClick={handleGlobalBookClick} />
 
+        <div className="section-divider-gold"></div>
         <Testimonials />
         
+        <div className="section-divider-gold"></div>
         <MapSection />
       </main>
 

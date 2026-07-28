@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { X, Phone, Gift, Calendar, AlertCircle } from 'lucide-react';
-import { FaWhatsapp } from 'react-icons/fa';
 import { LeadSubmission } from '../types';
 import { TREATMENTS_LIST } from './Hero';
 import { sendLeadToFormspree } from '../services/formspree';
-
-const WhatsappIcon = FaWhatsapp as unknown as React.FC<{ className?: string }>;
 
 interface PopupsProps {
   onBookClick: () => void;
@@ -111,9 +108,6 @@ export default function Popups({ onBookClick, onSuccess }: PopupsProps) {
     setShowScrollPopup(false);
     setScrollPopupDismissed(true);
   };
-
-  // WhatsApp helper link
-  const whatsAppLink = 'https://wa.me/919092136969?text=Hi%20I%2520am%2520interested%2520in%2520booking%2520a%2520Free%2520Skin%2520or%2520Hair%2520Consultation%2520at%2520Bonitaa%2520Tiruppur.';
 
   return (
     <>
@@ -245,23 +239,8 @@ export default function Popups({ onBookClick, onSuccess }: PopupsProps) {
         </div>
       )}
 
-      {/* Floating WhatsApp Action Button across all viewports */}
-      <a
-        href="https://wa.me/919092136969"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Chat with us on WhatsApp"
-        className="flex fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-50 bg-green-600 hover:bg-green-500 text-white p-3.5 rounded-full shadow-2xl border border-white/20 items-center gap-2.5 transition-all transform hover:scale-105 active:scale-95 group"
-        id="floating-whatsapp-btn"
-      >
-        <WhatsappIcon className="w-6 h-6 text-white" />
-        <span className="text-xs font-bold tracking-wider uppercase pr-1 hidden group-hover:inline transition-all">
-          Chat With Clinic
-        </span>
-      </a>
-
       {/* C. STICKY MOBILE BOTTOM CTA BAR */}
-      <div className="fixed bottom-0 left-0 w-full z-40 bg-[#0E0E0E]/95 backdrop-blur shadow-lg border-t border-gold/20 grid grid-cols-3 sm:hidden pb-[env(safe-area-inset-bottom,0px)]" id="mobile-sticky-cta">
+      <div className="fixed bottom-0 left-0 w-full z-40 bg-[#0E0E0E]/95 backdrop-blur shadow-lg border-t border-gold/20 grid grid-cols-2 sm:hidden pb-[env(safe-area-inset-bottom,0px)]" id="mobile-sticky-cta">
         {/* Call Now Button */}
         <a 
           href="tel:9092136969"
@@ -270,18 +249,6 @@ export default function Popups({ onBookClick, onSuccess }: PopupsProps) {
         >
           <Phone className="w-4 h-4 text-gold" />
           <span className="text-[9px] uppercase tracking-widest text-gray-300 font-bold">Call Now</span>
-        </a>
-
-        {/* WhatsApp Button */}
-        <a 
-          href={whatsAppLink}
-          target="_blank"
-          rel="noreferrer"
-          className="flex flex-col items-center justify-center gap-1 py-3 border-r border-gray-900 hover:bg-black transition-colors"
-          id="mobile-sticky-whatsapp"
-        >
-          <WhatsappIcon className="w-4 h-4 text-green-500" />
-          <span className="text-[9px] uppercase tracking-widest text-gray-300 font-bold">WhatsApp</span>
         </a>
 
         {/* Book Appointment Button */}

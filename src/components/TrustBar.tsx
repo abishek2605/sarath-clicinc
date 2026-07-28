@@ -10,7 +10,7 @@ export default function TrustBar() {
     },
     {
       icon: <Calendar className="w-4 h-4 text-gold shrink-0" />,
-      text: 'Same Day Appointment',
+      text: 'Online & In-Clinic Care',
       highlight: false
     },
     {

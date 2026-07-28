@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
 import { CheckCircle2, Calendar, Phone, MapPin, ArrowLeft, Clock, Sparkles, ShieldCheck } from 'lucide-react';
-import { FaWhatsapp } from 'react-icons/fa';
 import { LeadSubmission } from '../types';
-
-const WhatsappIcon = FaWhatsapp as unknown as React.FC<{ className?: string }>;
 
 interface ThankYouPageProps {
   lead?: LeadSubmission | null;
@@ -19,11 +16,9 @@ export default function ThankYouPage({ lead, onReturnHome }: ThankYouPageProps) 
     if (typeof window !== 'undefined' && (window as any).gtag) {
       try {
         (window as any).gtag('event', 'conversion', {
-          'send_to': 'AW-18337435110',
-          'value': 99.0,
-          'currency': 'INR'
+          'send_to': 'AW-18351602494/qDJLCP-64dccEL723K5E'
         });
-        console.log('gtag conversion fired for AW-18337435110');
+        console.log('gtag conversion fired for AW-18351602494/qDJLCP-64dccEL723K5E');
       } catch (err) {
         console.error('Error firing gtag conversion:', err);
       }
@@ -148,30 +143,19 @@ export default function ThankYouPage({ lead, onReturnHome }: ThankYouPageProps) 
             </li>
             <li className="flex items-start gap-2">
               <span className="text-gold font-bold">2.</span>
-              <span>You will receive an SMS / WhatsApp message with exact token time & direction link.</span>
+              <span>You will receive an SMS message with exact token time & direction link.</span>
             </li>
           </ul>
         </div>
 
         {/* Quick Action Buttons */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-          <a
-            href={`https://wa.me/919092136969?text=${encodeURIComponent(`Hi Bonitaa Clinic! My name is ${patientName}. I just booked an online appointment for ${treatmentName}. Please confirm my slot.`)}`}
-            target="_blank"
-            rel="noreferrer"
-            className="w-full bg-gold hover:bg-gold/90 text-black font-bold text-xs uppercase tracking-widest py-3.5 px-4 rounded transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-lg"
-            id="thankyou-whatsapp-btn"
-          >
-            <WhatsappIcon className="w-4 h-4 text-black" />
-            Instant WhatsApp Confirmation
-          </a>
-
+        <div className="pt-2">
           <a
             href="tel:9092136969"
-            className="w-full bg-black/60 border border-gray-700 hover:border-gold hover:text-gold text-white font-bold text-xs uppercase tracking-widest py-3.5 px-4 rounded transition-all duration-300 flex items-center justify-center gap-2"
+            className="w-full bg-gold hover:bg-gold/90 text-black font-bold text-xs uppercase tracking-widest py-3.5 px-4 rounded transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-lg"
             id="thankyou-call-btn"
           >
-            <Phone className="w-4 h-4 text-gold" />
+            <Phone className="w-4 h-4 text-black" />
             Call Clinic Directly
           </a>
         </div>

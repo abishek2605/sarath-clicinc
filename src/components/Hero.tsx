@@ -144,11 +144,11 @@ export default function Hero({ onSuccess }: HeroProps) {
               </div>
               <div className="inline-flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-full px-3 py-1.5 w-fit text-[11px] text-gray-300">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-ping"></span>
-                🗓️ Same Day Appointment
+                💻 Online & 🏥 In-Clinic Available
               </div>
               <div className="inline-flex items-center gap-1.5 bg-black/60 border border-gold/20 rounded-full px-3 py-1.5 w-fit text-[11px] text-gold font-semibold">
                 <span>4.9 ★★★★★</span>
-                <span className="text-gray-400 font-normal">(1,200+ Patient Success Stories)</span>
+                <span className="text-gray-400 font-normal">(30,000+ Patient Success Stories)</span>
               </div>
             </div>
 
@@ -219,8 +219,8 @@ export default function Hero({ onSuccess }: HeroProps) {
               <div className="flex items-center gap-2" id="indicator-sameday">
                 <Shield className="w-5 h-5 text-gold shrink-0" />
                 <div className="text-left">
-                  <p className="text-[10px] uppercase tracking-wider text-gray-400 leading-none">Fast Booking</p>
-                  <p className="text-xs font-semibold text-white mt-1">Same Day Appointment</p>
+                  <p className="text-[10px] uppercase tracking-wider text-gray-400 leading-none">Flexible Care</p>
+                  <p className="text-xs font-semibold text-white mt-1">Online & In-Clinic Care</p>
                 </div>
               </div>
 
