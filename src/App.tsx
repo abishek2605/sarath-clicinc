@@ -56,25 +56,10 @@ export default function App() {
     };
   }, []);
 
-  // Handle treatment card click (flows back to Hero input)
+  // Handle treatment card click (flows back to Hero form)
   const handleSelectTreatment = (treatmentName: string) => {
     setSelectedTreatment(treatmentName);
-    
-    // Focus the form and pre-fill the value
-    setTimeout(() => {
-      const treatmentSelect = document.getElementById('treatment-input') as HTMLSelectElement;
-      if (treatmentSelect) {
-        treatmentSelect.value = treatmentName;
-        // Trigger a synthetic change event to update Hero React state
-        const event = new Event('change', { bubbles: true });
-        treatmentSelect.dispatchEvent(event);
-      }
-      
-      const nameInput = document.getElementById('name-input');
-      if (nameInput) {
-        nameInput.focus();
-      }
-    }, 150);
+    handleGlobalBookClick();
   };
 
   // Global Scroll-to-Form Trigger

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { CheckCircle2, Calendar, Phone, MapPin, ArrowLeft, Clock, Sparkles, ShieldCheck } from 'lucide-react';
+import { CheckCircle2, Calendar, Phone, Mail, MapPin, ArrowLeft, Clock, Sparkles, ShieldCheck } from 'lucide-react';
 import { LeadSubmission } from '../types';
 
 interface ThankYouPageProps {
@@ -26,9 +26,9 @@ export default function ThankYouPage({ lead, onReturnHome }: ThankYouPageProps) 
   }, []);
 
   const patientName = lead?.name || 'Valued Patient';
-  const treatmentName = lead?.treatment || 'Skin & Hair Consultation';
   const phone = lead?.phone || '';
-  const preferredTime = lead?.preferredTime || 'Today / Earliest Available';
+  const email = lead?.email || '';
+  const consultationType = lead?.consultationType || 'IN-CLINIC';
 
   return (
     <div className="min-h-screen bg-[#111111] text-white flex flex-col justify-between py-8 px-4 sm:px-6 lg:px-8">
@@ -85,17 +85,9 @@ export default function ThankYouPage({ lead, onReturnHome }: ThankYouPageProps) 
           <div className="flex items-center justify-between border-b border-gray-800 pb-3">
             <span className="text-xs text-gray-400 font-medium flex items-center gap-1.5">
               <Calendar className="w-3.5 h-3.5 text-gold" />
-              Selected Treatment
+              Consultation Mode
             </span>
-            <span className="text-xs text-gold font-bold">{treatmentName}</span>
-          </div>
-
-          <div className="flex items-center justify-between border-b border-gray-800 pb-3">
-            <span className="text-xs text-gray-400 font-medium flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5 text-gold" />
-              Preferred Time Slot
-            </span>
-            <span className="text-xs text-white font-semibold">{preferredTime}</span>
+            <span className="text-xs text-gold font-bold">💻 {consultationType} CONSULTATION</span>
           </div>
 
           {phone && (
@@ -108,13 +100,23 @@ export default function ThankYouPage({ lead, onReturnHome }: ThankYouPageProps) 
             </div>
           )}
 
+          {email && (
+            <div className="flex items-center justify-between border-b border-gray-800 pb-3">
+              <span className="text-xs text-gray-400 font-medium flex items-center gap-1.5">
+                <Mail className="w-3.5 h-3.5 text-gold" />
+                Email Address
+              </span>
+              <span className="text-xs text-gray-200 font-mono">{email}</span>
+            </div>
+          )}
+
           <div className="flex items-center justify-between border-b border-gray-800 pb-3">
             <span className="text-xs text-gray-400 font-medium flex items-center gap-1.5">
               <ShieldCheck className="w-3.5 h-3.5 text-gold" />
               Consultation Fee
             </span>
             <div className="text-right">
-              <span className="text-xs text-gold font-bold">Pay at Clinic</span>
+              <span className="text-xs text-gold font-bold">₹99 - Pay at Clinic</span>
               <span className="text-[10px] text-gray-400 block font-light">(Senior Dermatologist Evaluation)</span>
             </div>
           </div>

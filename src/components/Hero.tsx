@@ -33,8 +33,7 @@ export default function Hero({ onSuccess }: HeroProps) {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    treatment: '',
-    preferredTime: '',
+    email: '',
     consultationType: 'IN-CLINIC' as 'ONLINE' | 'IN-CLINIC'
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -63,12 +62,11 @@ export default function Hero({ onSuccess }: HeroProps) {
       newErrors.phone = 'Please enter a valid 10-digit phone number';
     }
 
-    if (!formData.treatment) {
-      newErrors.treatment = 'Please select a treatment';
-    }
-
-    if (!formData.preferredTime) {
-      newErrors.preferredTime = 'Please select your preferred time';
+    if (formData.email.trim()) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email.trim())) {
+        newErrors.email = 'Please enter a valid email address';
+      }
     }
 
     setErrors(newErrors);
@@ -84,8 +82,7 @@ export default function Hero({ onSuccess }: HeroProps) {
     const submission: LeadSubmission = {
       name: formData.name.trim(),
       phone: formData.phone.trim(),
-      treatment: formData.treatment,
-      preferredTime: formData.preferredTime,
+      email: formData.email.trim(),
       consultationType: formData.consultationType,
       submittedAt: new Date().toISOString()
     };
@@ -105,8 +102,7 @@ export default function Hero({ onSuccess }: HeroProps) {
     setFormData({
       name: '',
       phone: '',
-      treatment: '',
-      preferredTime: '',
+      email: '',
       consultationType: 'IN-CLINIC'
     });
   };
@@ -312,30 +308,26 @@ export default function Hero({ onSuccess }: HeroProps) {
                   )}
                 </div>
 
-                {/* Treatment Interested */}
+                {/* Email Field */}
                 <div>
-                  <label htmlFor="treatment-input" className="block text-[11px] font-medium uppercase tracking-wider text-gray-400 mb-1.5">
-                    Treatment Interested In
+                  <label htmlFor="email-input" className="block text-[11px] font-medium uppercase tracking-wider text-gray-400 mb-1.5">
+                    Email Address
                   </label>
-                  <select
-                    id="treatment-input"
-                    name="treatment"
-                    value={formData.treatment}
+                  <input
+                    type="email"
+                    id="email-input"
+                    name="email"
+                    value={formData.email}
                     onChange={handleChange}
-                    className={`w-full bg-[#202020] text-white border rounded px-4 py-3 text-sm focus:outline-none focus:ring-1 appearance-none transition-all cursor-pointer ${
-                      errors.treatment ? 'border-red-500 focus:ring-red-500' : 'border-gray-700 focus:border-gold focus:ring-gold'
+                    placeholder="Enter email address"
+                    className={`w-full bg-[#202020] text-white border rounded px-4 py-3 text-sm focus:outline-none focus:ring-1 transition-all ${
+                      errors.email ? 'border-red-500 focus:ring-red-500' : 'border-gray-700 focus:border-gold focus:ring-gold'
                     }`}
-                    style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg fill=\"%23C9A227\" height=\"24\" viewBox=\"0 0 24 24\" width=\"24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 10l5 5 5-5z\"/></svg>')", backgroundPosition: "right 12px center", backgroundRepeat: "no-repeat" }}
-                  >
-                    <option value="" disabled>Select Clinical Treatment</option>
-                    {TREATMENTS_LIST.map((t, idx) => (
-                      <option key={idx} value={t} className="bg-[#181818]">{t}</option>
-                    ))}
-                  </select>
-                  {errors.treatment && (
+                  />
+                  {errors.email && (
                     <div className="flex items-center gap-1 mt-1 text-red-500 text-xs">
                       <AlertCircle className="w-3.5 h-3.5" />
-                      <span>{errors.treatment}</span>
+                      <span>{errors.email}</span>
                     </div>
                   )}
                 </div>
@@ -349,7 +341,7 @@ export default function Hero({ onSuccess }: HeroProps) {
                     <button
                       type="button"
                       onClick={() => setFormData(prev => ({ ...prev, consultationType: 'ONLINE' }))}
-                      className={`py-2 px-3 rounded text-xs font-bold uppercase tracking-wider transition-all cursor-pointer border ${
+                      className={`py-2.5 px-3 rounded text-xs font-bold uppercase tracking-wider transition-all cursor-pointer border ${
                         formData.consultationType === 'ONLINE'
                           ? 'bg-gold text-black border-gold'
                           : 'bg-[#202020] text-gray-400 border-gray-700 hover:text-white'
@@ -360,7 +352,7 @@ export default function Hero({ onSuccess }: HeroProps) {
                     <button
                       type="button"
                       onClick={() => setFormData(prev => ({ ...prev, consultationType: 'IN-CLINIC' }))}
-                      className={`py-2 px-3 rounded text-xs font-bold uppercase tracking-wider transition-all cursor-pointer border ${
+                      className={`py-2.5 px-3 rounded text-xs font-bold uppercase tracking-wider transition-all cursor-pointer border ${
                         formData.consultationType === 'IN-CLINIC'
                           ? 'bg-gold text-black border-gold'
                           : 'bg-[#202020] text-gray-400 border-gray-700 hover:text-white'
@@ -369,34 +361,6 @@ export default function Hero({ onSuccess }: HeroProps) {
                       IN-CLINIC
                     </button>
                   </div>
-                </div>
-
-                {/* Preferred Time */}
-                <div>
-                  <label htmlFor="time-input" className="block text-[11px] font-medium uppercase tracking-wider text-gray-400 mb-1.5">
-                    Preferred Time Slot
-                  </label>
-                  <select
-                    id="time-input"
-                    name="preferredTime"
-                    value={formData.preferredTime}
-                    onChange={handleChange}
-                    className={`w-full bg-[#202020] text-white border rounded px-4 py-3 text-sm focus:outline-none focus:ring-1 appearance-none transition-all cursor-pointer ${
-                      errors.preferredTime ? 'border-red-500 focus:ring-red-500' : 'border-gray-700 focus:border-gold focus:ring-gold'
-                    }`}
-                    style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg fill=\"%23C9A227\" height=\"24\" viewBox=\"0 0 24 24\" width=\"24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 10l5 5 5-5z\"/></svg>')", backgroundPosition: "right 12px center", backgroundRepeat: "no-repeat" }}
-                  >
-                    <option value="" disabled>Select Time Window</option>
-                    {PREFERRED_TIMES.map((t, idx) => (
-                      <option key={idx} value={t} className="bg-[#181818]">{t}</option>
-                    ))}
-                  </select>
-                  {errors.preferredTime && (
-                    <div className="flex items-center gap-1 mt-1 text-red-500 text-xs">
-                      <AlertCircle className="w-3.5 h-3.5" />
-                      <span>{errors.preferredTime}</span>
-                    </div>
-                  )}
                 </div>
 
                 {/* CTA Submit Button */}

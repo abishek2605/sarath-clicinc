@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Phone, Gift, Calendar, AlertCircle } from 'lucide-react';
 import { LeadSubmission } from '../types';
-import { TREATMENTS_LIST } from './Hero';
 import { sendLeadToFormspree } from '../services/formspree';
 
 interface PopupsProps {
@@ -19,12 +18,19 @@ export default function Popups({ onBookClick, onSuccess }: PopupsProps) {
   const [scrollPopupDismissed, setScrollPopupDismissed] = useState(false);
 
   // Exit intent form state
-  const [exitForm, setExitForm] = useState({ name: '', phone: '', treatment: '' });
+  const [exitForm, setExitForm] = useState({ name: '', phone: '', email: '' });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // 1. Detect Exit Intent
+  // 1. Detect Exit Intent & 10-Second Timer
   useEffect(() => {
+    // 10-second auto-trigger timer
+    const timer = setTimeout(() => {
+      if (!exitIntentDismissed && !showExitIntent) {
+        setShowExitIntent(true);
+      }
+    }, 10000);
+
     const handleMouseLeave = (e: MouseEvent) => {
       // clientY < 20 indicates mouse moving out of viewport (towards address bar/back buttons)
       if (e.clientY < 20 && !exitIntentDismissed && !showExitIntent) {
@@ -33,7 +39,10 @@ export default function Popups({ onBookClick, onSuccess }: PopupsProps) {
     };
 
     document.addEventListener('mouseleave', handleMouseLeave);
-    return () => document.removeEventListener('mouseleave', handleMouseLeave);
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener('mouseleave', handleMouseLeave);
+    };
   }, [exitIntentDismissed, showExitIntent]);
 
   // 2. Detect Scroll percentage
@@ -68,8 +77,13 @@ export default function Popups({ onBookClick, onSuccess }: PopupsProps) {
     } else if (!phoneRegex.test(exitForm.phone.replace(/[\s-]/g, ''))) {
       newErrors.phone = 'Invalid phone number';
     }
-    
-    if (!exitForm.treatment) newErrors.treatment = 'Select treatment';
+
+    if (exitForm.email.trim()) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(exitForm.email.trim())) {
+        newErrors.email = 'Invalid email address';
+      }
+    }
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -81,7 +95,7 @@ export default function Popups({ onBookClick, onSuccess }: PopupsProps) {
     const submission: LeadSubmission = {
       name: exitForm.name.trim(),
       phone: exitForm.phone.trim(),
-      treatment: exitForm.treatment,
+      email: exitForm.email.trim(),
       submittedAt: new Date().toISOString()
     };
 
@@ -132,7 +146,7 @@ export default function Popups({ onBookClick, onSuccess }: PopupsProps) {
                 Wait! Don't Miss Out
               </h3>
               <p className="text-xs text-gray-300 mt-1">
-                Secure your <span className="text-gold font-bold">FREE Doctor Consultation</span> slot before leaving. No obligation.
+                Secure your <span className="text-gold font-bold">Doctor Consultation</span> slot before leaving. No obligation.
               </p>
             </div>
 
@@ -171,22 +185,19 @@ export default function Popups({ onBookClick, onSuccess }: PopupsProps) {
               </div>
 
               <div>
-                <select
-                  value={exitForm.treatment}
+                <input
+                  type="email"
+                  placeholder="Enter Email Address"
+                  value={exitForm.email}
                   onChange={(e) => {
-                    setExitForm({ ...exitForm, treatment: e.target.value });
-                    if (errors.treatment) setErrors({ ...errors, treatment: '' });
+                    setExitForm({ ...exitForm, email: e.target.value });
+                    if (errors.email) setErrors({ ...errors, email: '' });
                   }}
-                  className={`w-full bg-[#202020] border text-white rounded px-3 py-2.5 text-sm focus:outline-none focus:border-gold cursor-pointer ${
-                    errors.treatment ? 'border-red-500' : 'border-gray-700'
+                  className={`w-full bg-[#202020] border text-white rounded px-3 py-2.5 text-sm focus:outline-none focus:border-gold ${
+                    errors.email ? 'border-red-500' : 'border-gray-700'
                   }`}
-                >
-                  <option value="" disabled>Select Desired Treatment</option>
-                  {TREATMENTS_LIST.map((t, idx) => (
-                    <option key={idx} value={t} className="bg-[#181818]">{t}</option>
-                  ))}
-                </select>
-                {errors.treatment && <p className="text-red-500 text-[10px] mt-0.5">{errors.treatment}</p>}
+                />
+                {errors.email && <p className="text-red-500 text-[10px] mt-0.5">{errors.email}</p>}
               </div>
 
               <button
@@ -194,7 +205,7 @@ export default function Popups({ onBookClick, onSuccess }: PopupsProps) {
                 disabled={isSubmitting}
                 className="w-full bg-gold text-black font-bold text-xs uppercase tracking-widest py-3 px-4 rounded hover:bg-gold/90 transition-all shadow-lg shadow-gold/10 mt-2 cursor-pointer flex items-center justify-center gap-2"
               >
-                {isSubmitting ? 'Securing Slot...' : 'Claim Free consultation'}
+                {isSubmitting ? 'Securing Slot...' : 'Claim Consultation'}
               </button>
             </form>
           </div>

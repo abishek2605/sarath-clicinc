@@ -194,9 +194,9 @@ export default function LeadPortal({ onClose }: LeadPortalProps) {
                   <Sparkles className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Top Treatment</p>
+                  <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Consultation Mode</p>
                   <p className="text-xs font-bold text-white mt-1 leading-snug">
-                    {leads.length > 0 ? leads[0].treatment : 'No submissions'}
+                    {leads.length > 0 ? (leads[0].consultationType || 'IN-CLINIC') : 'No submissions'}
                   </p>
                 </div>
               </div>
@@ -215,8 +215,8 @@ export default function LeadPortal({ onClose }: LeadPortalProps) {
                       <tr className="bg-black border-b border-gray-900 text-gray-400 uppercase tracking-wider text-[10px] font-bold">
                         <th className="p-4">Name</th>
                         <th className="p-4">Phone</th>
-                        <th className="p-4">Treatment</th>
-                        <th className="p-4">Preferred Time</th>
+                        <th className="p-4">Email</th>
+                        <th className="p-4">Consultation Mode</th>
                         <th className="p-4">Submitted At</th>
                         <th className="p-4 text-right">Action</th>
                       </tr>
@@ -230,13 +230,19 @@ export default function LeadPortal({ onClose }: LeadPortalProps) {
                               {lead.phone}
                             </a>
                           </td>
+                          <td className="p-4 text-xs text-gray-300">
+                            {lead.email ? (
+                              <a href={`mailto:${lead.email}`} className="hover:text-gold transition-colors">
+                                {lead.email}
+                              </a>
+                            ) : (
+                              <span className="text-gray-600">-</span>
+                            )}
+                          </td>
                           <td className="p-4">
                             <span className="bg-gold/10 text-gold font-semibold text-[10px] px-2 py-0.5 rounded border border-gold/15 uppercase">
-                              {lead.treatment}
+                              {lead.consultationType || 'IN-CLINIC'}
                             </span>
-                          </td>
-                          <td className="p-4 text-gray-400">
-                            {lead.preferredTime || 'Immediate (Exit Pop)'}
                           </td>
                           <td className="p-4 text-[11px] text-gray-500">
                             {new Date(lead.submittedAt).toLocaleString()}

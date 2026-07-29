@@ -26,7 +26,8 @@ export interface FAQItem {
 export interface LeadSubmission {
   name: string;
   phone: string;
-  treatment: string;
+  email?: string;
+  treatment?: string;
   preferredTime?: string;
   consultationType?: 'ONLINE' | 'IN-CLINIC';
   submittedAt: string;

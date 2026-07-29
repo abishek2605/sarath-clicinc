@@ -16,11 +16,10 @@ export async function sendLeadToFormspree(lead: LeadSubmission): Promise<boolean
       body: JSON.stringify({
         name: lead.name,
         phone: lead.phone,
-        treatment: lead.treatment,
-        preferredTime: lead.preferredTime || 'Not specified',
+        email: lead.email || '',
         consultationType: lead.consultationType || 'IN-CLINIC',
         submittedAt: lead.submittedAt || new Date().toISOString(),
-        _subject: `New Appointment Lead: ${lead.name} - ${lead.treatment}`,
+        _subject: `New Appointment Lead: ${lead.name}`,
       }),
     });
 
