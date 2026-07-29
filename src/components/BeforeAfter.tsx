@@ -2,13 +2,19 @@ import React, { useState } from 'react';
 import { CalendarCheck } from 'lucide-react';
 import { BeforeAfterCardItem } from '../types';
 
+import resultHair1 from '../assets/result-hair-1.jpg';
+import resultHair2 from '../assets/result-hair-2.jpg';
+import resultHairOhrs from '../assets/result-hair-ohrs.jpg';
+import resultSkinFace from '../assets/result-skin-face.jpg';
+import resultAcneScar from '../assets/result-acne-scar.jpg';
+
 const TRANSFORMATION_CARDS: BeforeAfterCardItem[] = [
   {
     id: 'hair-restore',
     title: 'Hair Restoration',
     subtitle: 'GFC / PRP Hair Therapy',
     category: 'hair',
-    fullImg: '/result-hair-1.jpg',
+    fullImg: resultHair1,
     sessionsBadge: 'Multiple Sessions',
     treatmentTag: 'HAIR'
   },
@@ -17,7 +23,7 @@ const TRANSFORMATION_CARDS: BeforeAfterCardItem[] = [
     title: 'Hair Density Recovery',
     subtitle: 'GFC Hair Treatment',
     category: 'hair',
-    fullImg: '/result-hair-2.jpg',
+    fullImg: resultHair2,
     sessionsBadge: 'Visible from Session 3',
     treatmentTag: 'HAIR'
   },
@@ -26,7 +32,7 @@ const TRANSFORMATION_CARDS: BeforeAfterCardItem[] = [
     title: 'Crown & Scalp Growth',
     subtitle: 'Advanced Growth Factor Therapy',
     category: 'hair',
-    fullImg: '/result-hair-ohrs.jpg',
+    fullImg: resultHairOhrs,
     sessionsBadge: '4–6 Sessions',
     treatmentTag: 'HAIR'
   },
@@ -35,7 +41,7 @@ const TRANSFORMATION_CARDS: BeforeAfterCardItem[] = [
     title: 'Facial Skin Rejuvenation',
     subtitle: 'Skin Brightening & Laser',
     category: 'skin',
-    fullImg: '/result-skin-face.jpg',
+    fullImg: resultSkinFace,
     sessionsBadge: '3–4 Sessions',
     treatmentTag: 'SKIN'
   },
@@ -44,7 +50,7 @@ const TRANSFORMATION_CARDS: BeforeAfterCardItem[] = [
     title: 'Acne Scar Remodeling',
     subtitle: 'Subcision & Microneedling',
     category: 'skin',
-    fullImg: '/result-acne-scar.jpg',
+    fullImg: resultAcneScar,
     sessionsBadge: '4 Sessions',
     treatmentTag: 'SKIN'
   }
@@ -121,6 +127,17 @@ export default function BeforeAfter() {
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-contain"
                     loading="lazy"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      const fileName = card.id === 'hair-restore' ? 'result-hair-1.jpg'
+                        : card.id === 'hair-density' ? 'result-hair-2.jpg'
+                        : card.id === 'hair-crown' ? 'result-hair-ohrs.jpg'
+                        : card.id === 'skin-rejuve' ? 'result-skin-face.jpg'
+                        : 'result-acne-scar.jpg';
+                      if (!target.src.endsWith(`/${fileName}`)) {
+                        target.src = `/${fileName}`;
+                      }
+                    }}
                   />
                 ) : (
                   <div className="w-full h-full flex">

@@ -1,19 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone, Calendar } from 'lucide-react';
+import bonitaaLogo from '../assets/bonitaa-logo.png';
 
 interface HeaderProps {
   onBookClick: () => void;
 }
 
 export function Logo() {
+  const [imgError, setImgError] = useState(false);
+
   return (
     <div className="flex items-center gap-3">
-      <img 
-        src="/bonitaa-logo.png" 
-        alt="Bonitaa Skin and Hair Care" 
-        className="h-10 md:h-12 w-auto object-contain"
-        referrerPolicy="no-referrer"
-      />
+      {!imgError ? (
+        <img 
+          src={bonitaaLogo} 
+          alt="Bonitaa Skin and Hair Care" 
+          className="h-10 md:h-12 w-auto object-contain"
+          referrerPolicy="no-referrer"
+          onError={(e) => {
+            const target = e.currentTarget;
+            if (target.src !== '/bonitaa-logo.png' && !target.src.endsWith('/bonitaa-logo.png')) {
+              target.src = '/bonitaa-logo.png';
+            } else {
+              setImgError(true);
+            }
+          }}
+        />
+      ) : (
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-full bg-gold/20 border border-gold flex items-center justify-center font-bold text-gold text-sm">
+            B
+          </div>
+          <div className="flex flex-col">
+            <span className="font-serif font-bold text-gold tracking-wider text-base leading-none">BONITAA</span>
+            <span className="text-[9px] tracking-widest text-gray-400 uppercase leading-tight">Skin & Hair Care</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
