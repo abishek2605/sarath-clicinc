@@ -16,9 +16,9 @@ export default function ThankYouPage({ lead, onReturnHome }: ThankYouPageProps) 
     if (typeof window !== 'undefined' && (window as any).gtag) {
       try {
         (window as any).gtag('event', 'conversion', {
-          'send_to': 'AW-18351602494/qDJLCP-64dccEL723K5E'
+          'send_to': 'AW-18337435110/3N37CKa-9dYcEOab_KdE'
         });
-        console.log('gtag conversion fired for AW-18351602494/qDJLCP-64dccEL723K5E');
+        console.log('gtag conversion fired for AW-18337435110/3N37CKa-9dYcEOab_KdE');
       } catch (err) {
         console.error('Error firing gtag conversion:', err);
       }
