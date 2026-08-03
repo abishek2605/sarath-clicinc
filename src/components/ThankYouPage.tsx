@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { CheckCircle2, Calendar, Phone, Mail, MapPin, ArrowLeft, Clock, Sparkles, ShieldCheck } from 'lucide-react';
 import { LeadSubmission } from '../types';
-import bonitaaLogo from '../assets/bonitaa-logo.png';
 
 interface ThankYouPageProps {
   lead?: LeadSubmission | null;
@@ -46,16 +45,9 @@ export default function ThankYouPage({ lead, onReturnHome }: ThankYouPageProps) 
 
         <div className="flex items-center gap-2">
           <img 
-            src={bonitaaLogo} 
+            src="/bonitaa-logo.png" 
             alt="Bonitaa Skin and Hair Care" 
             className="h-10 md:h-12 w-auto object-contain"
-            referrerPolicy="no-referrer"
-            onError={(e) => {
-              const target = e.currentTarget;
-              if (target.src !== '/bonitaa-logo.png' && !target.src.endsWith('/bonitaa-logo.png')) {
-                target.src = '/bonitaa-logo.png';
-              }
-            }}
           />
         </div>
       </div>

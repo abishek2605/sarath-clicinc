@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone, Calendar } from 'lucide-react';
-import bonitaaLogo from '../assets/bonitaa-logo.png';
 
 interface HeaderProps {
   onBookClick: () => void;
@@ -13,18 +12,10 @@ export function Logo() {
     <div className="flex items-center gap-3">
       {!imgError ? (
         <img 
-          src={bonitaaLogo} 
+          src="/bonitaa-logo.png" 
           alt="Bonitaa Skin and Hair Care" 
           className="h-10 md:h-12 w-auto object-contain"
-          referrerPolicy="no-referrer"
-          onError={(e) => {
-            const target = e.currentTarget;
-            if (target.src !== '/bonitaa-logo.png' && !target.src.endsWith('/bonitaa-logo.png')) {
-              target.src = '/bonitaa-logo.png';
-            } else {
-              setImgError(true);
-            }
-          }}
+          onError={() => setImgError(true)}
         />
       ) : (
         <div className="flex items-center gap-2">
