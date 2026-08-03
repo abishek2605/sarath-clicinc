@@ -146,7 +146,7 @@ export default function Popups({ onBookClick, onSuccess }: PopupsProps) {
                 Wait! Don't Miss Out
               </h3>
               <p className="text-xs text-gray-300 mt-1">
-                Secure your <span className="text-gold font-bold">Doctor Consultation</span> slot before leaving. No obligation.
+                Secure your <span className="text-gold font-bold">Free Doctor Consultation</span> slot before leaving. No obligation.
               </p>
             </div>
 
@@ -205,7 +205,7 @@ export default function Popups({ onBookClick, onSuccess }: PopupsProps) {
                 disabled={isSubmitting}
                 className="w-full bg-gold text-black font-bold text-xs uppercase tracking-widest py-3 px-4 rounded hover:bg-gold/90 transition-all shadow-lg shadow-gold/10 mt-2 cursor-pointer flex items-center justify-center gap-2"
               >
-                {isSubmitting ? 'Securing Slot...' : 'Claim Consultation'}
+                {isSubmitting ? 'Securing Slot...' : 'Claim Free Consultation'}
               </button>
             </form>
           </div>

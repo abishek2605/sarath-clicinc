@@ -135,7 +135,7 @@ export default function Hero({ onSuccess }: HeroProps) {
               <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/40 rounded-full px-4 py-1.5 w-fit" id="fee-badge">
                 <Sparkles className="w-3.5 h-3.5 text-gold animate-pulse" />
                 <span className="text-[11px] sm:text-xs font-bold text-gold tracking-widest uppercase">
-                  ₹99 DOCTOR CONSULTATION FEE
+                  FREE DOCTOR CONSULTATION
                 </span>
               </div>
               <div className="inline-flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-full px-3 py-1.5 w-fit text-[11px] text-gray-300">
@@ -159,7 +159,7 @@ export default function Hero({ onSuccess }: HeroProps) {
 
             {/* Subheadline */}
             <p className="font-sans text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl font-light leading-relaxed" id="hero-subheading">
-              Advanced, FDA-approved clinical solutions for Warts & Mole Removal, PRP & GFC Hair Growth, and Acne Scar treatments. Get treated by senior dermatologists in Tiruppur. Consultation <span className="text-gold font-bold">payable at the clinic</span>.
+              Advanced, FDA-approved clinical solutions for Warts & Mole Removal, PRP & GFC Hair Growth, and Acne Scar treatments. Get treated by senior dermatologists in Tiruppur. Consultation is <span className="text-gold font-bold">100% Free</span>.
             </p>
 
             {/* Treatment Hashtags */}
@@ -208,7 +208,7 @@ export default function Hero({ onSuccess }: HeroProps) {
                 <CheckCircle2 className="w-5 h-5 text-gold shrink-0" />
                 <div className="text-left">
                   <p className="text-[10px] uppercase tracking-wider text-gray-400 leading-none">Affordable Care</p>
-                  <p className="text-xs font-semibold text-white mt-1">₹99 Consultation Fee</p>
+                  <p className="text-xs font-semibold text-white mt-1">Free Consultation</p>
                 </div>
               </div>
               
@@ -387,7 +387,7 @@ export default function Hero({ onSuccess }: HeroProps) {
                 </button>
 
                 <div className="text-[11px] text-center text-gray-400 mt-3 space-y-1.5 font-light">
-                  <p className="text-gray-300">Consultation fee is payable at the clinic after your first clinical evaluation.</p>
+                  <p className="text-gray-300">100% Free Consultation. No hidden charges or commitments.</p>
                   <p className="text-gold font-semibold">🔥 Only 4 slots left for today</p>
                   <p>🔒 Medical Privacy Guaranteed. Callback within 15 mins.</p>
                 </div>

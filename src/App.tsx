@@ -98,9 +98,7 @@ export default function App() {
     if (typeof window !== 'undefined' && (window as any).gtag) {
       try {
         (window as any).gtag('event', 'conversion', {
-          'send_to': 'AW-18337435110',
-          'value': 99.0,
-          'currency': 'INR'
+          'send_to': 'AW-18337435110/3N37CKa-9dYcEOab_KdE'
         });
       } catch (e) {
         console.error('gtag conversion error:', e);

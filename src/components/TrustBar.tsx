@@ -5,7 +5,7 @@ export default function TrustBar() {
   const trustItems = [
     {
       icon: <Tag className="w-4 h-4 text-gold shrink-0" />,
-      text: '₹99 Consultation Fee',
+      text: 'Free Doctor Consultation',
       highlight: true
     },
     {

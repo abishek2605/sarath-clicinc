@@ -213,7 +213,7 @@ export default function Footer({ onAdminClick }: FooterProps) {
             <button 
               onClick={() => handleOpenGuide({
                 title: 'Terms of Clinical Consultation',
-                content: 'Skin or hair consultations are valid for limited slot bookings only. Our chief dermatologists reserve the right to recommend specific skin testing prior to laser procedures to ensure complete diagnostic accuracy.'
+                content: 'Free skin or hair consultations are valid for limited slot bookings only. Our chief dermatologists reserve the right to recommend specific skin testing prior to laser procedures to ensure complete diagnostic accuracy.'
               })}
               className="hover:text-gold transition-colors cursor-pointer text-[10px]"
             >

@@ -123,7 +123,7 @@ export default function ThankYouPage({ lead, onReturnHome }: ThankYouPageProps) 
               Consultation Fee
             </span>
             <div className="text-right">
-              <span className="text-xs text-gold font-bold">₹99 - Pay at Clinic</span>
+              <span className="text-xs text-gold font-bold">FREE (100% Free)</span>
               <span className="text-[10px] text-gray-400 block font-light">(Senior Dermatologist Evaluation)</span>
             </div>
           </div>
