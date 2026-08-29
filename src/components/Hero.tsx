@@ -8,19 +8,20 @@ interface HeroProps {
 }
 
 export const TREATMENTS_LIST = [
-  'Hair Fall Treatment',
-  'PRP Hair Therapy',
-  'GFC Hair Treatment',
-  'Acne Treatment',
-  'Pigmentation Treatment',
-  'Skin Brightening',
-  'Laser Hair Removal',
-  'Anti Aging Treatment',
-  'Chemical Peel',
-  'Hydra Facial',
-  'Skin Rejuvenation',
-  'Warts & Mole Removal',
-  'Scar Treatment'
+  'Hair Transplant',
+  'Excell Gfc',
+  'Prp,Gfc',
+  'Anti dandruff treatment',
+  'Micro needling',
+  'Low level laser hair therapy',
+  'Hair fall controll',
+  'Anti acne',
+  'Botox&fillers',
+  'Mnrf&meso glow',
+  'Glutathione treatment for skin',
+  'Excell Gfc skin',
+  'Carbon laser therapy',
+  'Full body laser hair removal'
 ];
 
 export const PREFERRED_TIMES = [
@@ -144,7 +145,7 @@ export default function Hero({ onSuccess }: HeroProps) {
               </div>
               <div className="inline-flex items-center gap-1.5 bg-black/60 border border-gold/20 rounded-full px-3 py-1.5 w-fit text-[11px] text-gold font-semibold">
                 <span>4.9 ★★★★★</span>
-                <span className="text-gray-400 font-normal">(30,000+ Patient Success Stories)</span>
+                <span className="text-gray-400 font-normal">(10,000+ Happy Patients)</span>
               </div>
             </div>
 
@@ -159,16 +160,8 @@ export default function Hero({ onSuccess }: HeroProps) {
 
             {/* Subheadline */}
             <p className="font-sans text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl font-light leading-relaxed" id="hero-subheading">
-              Advanced, FDA-approved clinical solutions for Warts & Mole Removal, PRP & GFC Hair Growth, and Acne Scar treatments. Get treated by senior dermatologists in Tiruppur. Consultation is <span className="text-gold font-bold">100% Free</span>.
+              Advanced, FDA-approved clinical solutions for Hair Transplant, Excell GFC, PRP & GFC Hair Growth, Hair Fall Control, Anti-Dandruff, Microneedling, Laser Hair Therapy, Anti-Acne, Botox & Fillers, MNRF, Meso Glow, Glutathione, Carbon Laser Therapy & Full-Body Laser Hair Removal. Get treated by senior dermatologists in Tiruppur. Consultation is <span className="text-gold font-bold">100% Free</span>.
             </p>
-
-            {/* Treatment Hashtags */}
-            <div className="flex flex-wrap gap-2 text-[11px] font-medium text-gray-400">
-              <span className="bg-black/60 border border-gray-800 px-2.5 py-1 rounded text-gold/90">#SkinSpecialistTiruppur</span>
-              <span className="bg-black/60 border border-gray-800 px-2.5 py-1 rounded">#WartsTreatment</span>
-              <span className="bg-black/60 border border-gray-800 px-2.5 py-1 rounded">#GFCHairTherapy</span>
-              <span className="bg-black/60 border border-gray-800 px-2.5 py-1 rounded">#AcneScarRemodeling</span>
-            </div>
 
             {/* CTAs */}
             <div className="flex flex-wrap items-center gap-4 pt-2">

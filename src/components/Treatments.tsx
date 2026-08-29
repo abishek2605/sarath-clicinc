@@ -8,121 +8,130 @@ interface TreatmentsProps {
 
 const TREATMENTS_DATA: (Treatment & { category: 'skin' | 'hair' | 'advanced' })[] = [
   {
-    id: 'hair-fall',
+    id: 'hair-transplant',
     category: 'hair',
-    title: 'Hair Fall Treatment',
-    description: 'Comprehensive evaluation of hair loss causes coupled with clinical, medical-grade solutions to arrest fall and trigger follicle health.',
-    duration: '45 mins',
-    tag: 'Follicle Stimulating',
+    title: 'Hair Transplant',
+    description: 'Advanced FUE/FUT follicular unit hair restoration for permanent density, natural hairline reconstruction, and maximum graft survival.',
+    duration: '3–6 hrs',
+    tag: 'Permanent Density',
     image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80'
   },
   {
-    id: 'prp-hair',
+    id: 'excell-gfc',
     category: 'hair',
-    title: 'PRP Hair Therapy',
-    description: 'Platelet-Rich Plasma therapy utilizing your own growth factors to naturally activate and density-enhance miniaturizing hair follicles.',
-    duration: '60 mins',
-    tag: 'Premium Hair Growth',
-    image: 'https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?auto=format&fit=crop&w=600&q=80'
-  },
-  {
-    id: 'gfc-hair',
-    category: 'hair',
-    title: 'GFC Hair Treatment',
-    description: 'Advanced Growth Factor Concentrate therapy. A next-gen, highly stable and cell-free treatment offering faster and superior follicle recovery.',
-    duration: '50 mins',
-    tag: 'Clinical Growth Cell',
+    title: 'Excell Gfc',
+    description: 'Next-generation high-concentration cell-free Growth Factor Concentrate therapy for rapid follicle revival, zero downtime, and accelerated hair regrowth.',
+    duration: '45 mins',
+    tag: 'Next-Gen Growth Factor',
     image: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=600&q=80'
   },
   {
-    id: 'acne-tx',
+    id: 'prp-gfc',
+    category: 'hair',
+    title: 'Prp,Gfc',
+    description: 'Synergistic Platelet-Rich Plasma & Growth Factor Concentrate therapy to arrest follicle miniaturization, activate dormant roots, and boost hair volume.',
+    duration: '50 mins',
+    tag: 'Dual-Action Regrowth',
+    image: 'https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?auto=format&fit=crop&w=600&q=80'
+  },
+  {
+    id: 'anti-dandruff',
+    category: 'hair',
+    title: 'Anti dandruff treatment',
+    description: 'Clinical scalp detox, antifungal clarifying therapy, and deep micro-exfoliation to eliminate stubborn flakes, soothe itchiness, and balance scalp health.',
+    duration: '40 mins',
+    tag: 'Scalp Detox & Clarity',
+    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80'
+  },
+  {
+    id: 'micro-needling',
     category: 'skin',
-    title: 'Acne Treatment',
-    description: 'Specialized dermatological care targeting acne roots, regulating sebum, and clearing active pustules to restore structural skin harmony.',
+    title: 'Micro needling',
+    description: 'Precision medical collagen induction therapy with peptide serums to minimize open pores, smoothen textured skin, and fade fine acne indentations.',
+    duration: '45 mins',
+    tag: 'Collagen Induction',
+    image: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=600&q=80'
+  },
+  {
+    id: 'low-level-laser-hair',
+    category: 'hair',
+    title: 'Low level laser hair therapy',
+    description: 'US-FDA cleared cold laser photo-biomodulation stimulating cellular ATP, enhancing scalp micro-circulation, and thickening weak hair shafts.',
+    duration: '30 mins',
+    tag: 'Photo-Biomodulation',
+    image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80'
+  },
+  {
+    id: 'hair-fall-control',
+    category: 'hair',
+    title: 'Hair fall controll',
+    description: 'Targeted clinical trichology protocol assessing nutritional, hormonal, and scalp triggers to arrest severe shedding and fortify hair roots.',
+    duration: '45 mins',
+    tag: 'Root Fortification',
+    image: 'https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?auto=format&fit=crop&w=600&q=80'
+  },
+  {
+    id: 'anti-acne',
+    category: 'skin',
+    title: 'Anti acne',
+    description: 'Specialized dermatological protocols clearing active cystic acne, regulating overactive sebaceous glands, and preventing recurring inflammatory breakouts.',
     duration: '45 mins',
     tag: 'Dermatologist Standard',
     image: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=600&q=80'
   },
   {
-    id: 'pigmentation',
-    category: 'skin',
-    title: 'Pigmentation Treatment',
-    description: 'Advanced clinical treatments for melasma, freckles, and sun spots. Evens out skin tone by targeting overactive deep melanocytes.',
-    duration: '40 mins',
-    tag: 'Melanocyte Regulation',
-    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80'
-  },
-  {
-    id: 'brightening',
-    category: 'skin',
-    title: 'Skin Brightening',
-    description: 'Premium glutathione and vitamin infusions designed to combat oxidative stress, improve luminosity, and reveal natural, flawless radiance.',
-    duration: '45 mins',
-    tag: 'Deep Luminosity Boost',
-    image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=600&q=80'
-  },
-  {
-    id: 'laser-hair',
+    id: 'botox-fillers',
     category: 'advanced',
-    title: 'Laser Hair Removal',
-    description: 'Pain-free, US-FDA approved cool-tip laser technology to achieve permanently smooth, hair-free skin across all skin types safely.',
-    duration: '30-90 mins',
-    tag: 'US-FDA Approved',
-    image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80'
-  },
-  {
-    id: 'anti-aging',
-    category: 'advanced',
-    title: 'Anti Aging Treatment',
-    description: 'Non-surgical collagen-boosting therapies, targeted fine-line correction, and skin laxity restoration for natural youthfulness.',
-    duration: '60 mins',
-    tag: 'Collagen Stimulating',
+    title: 'Botox&fillers',
+    description: 'US-FDA approved precision neuromodulators and hyaluronic acid dermal fillers for softening dynamic wrinkles, restoring facial volume, and contouring.',
+    duration: '30–45 mins',
+    tag: 'Facial Aesthetics',
     image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=600&q=80'
   },
   {
-    id: 'chemical-peel',
-    category: 'skin',
-    title: 'Chemical Peel',
-    description: 'Controlled medical-grade skin exfoliation utilizing specialized organic plant acids to sweep dead cells and surface imperfections.',
-    duration: '30 mins',
-    tag: 'Cellular Turnover',
-    image: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=600&q=80'
-  },
-  {
-    id: 'hydra-facial',
-    category: 'skin',
-    title: 'Hydra Facial',
-    description: 'Multi-step vortex deep extraction, luxury serum infusion, and intense hydration treatment that delivers immediate, red-carpet ready skin glow.',
-    duration: '45 mins',
-    tag: 'Instant Red-Carpet Glow',
+    id: 'mnrf-meso-glow',
+    category: 'advanced',
+    title: 'Mnrf&meso glow',
+    description: 'Micro-Needling Fractional Radiofrequency combined with targeted meso glow cocktail infusions for deep dermal remodeling, skin tightening, and instant radiance.',
+    duration: '60 mins',
+    tag: 'Deep Remodeling',
     image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=600&q=80'
   },
   {
-    id: 'rejuvenation',
+    id: 'glutathione-skin',
     category: 'skin',
-    title: 'Skin Rejuvenation',
-    description: 'Advanced medical microneedling and peptide serums combined to boost elastin production, minimize pores, and revive tired skin.',
-    duration: '50 mins',
-    tag: 'Elasticity & Pore Rescue',
-    image: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=600&q=80'
+    title: 'Glutathione treatment for skin',
+    description: 'Medical-grade master antioxidant and vitamin infusions targeting stubborn hyperpigmentation, uneven tone, and dullness for luminous skin glow.',
+    duration: '45 mins',
+    tag: 'Luminosity Infusion',
+    image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=600&q=80'
   },
   {
-    id: 'mole-removal',
+    id: 'excell-gfc-skin',
+    category: 'skin',
+    title: 'Excell Gfc skin',
+    description: 'Autologous cell-free Growth Factor Concentrate skin therapy designed to accelerate collagen regeneration, reduce fine lines, and restore natural firmness.',
+    duration: '50 mins',
+    tag: 'Cellular Rejuvenation',
+    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80'
+  },
+  {
+    id: 'carbon-laser',
     category: 'advanced',
-    title: 'Warts & Mole Removal',
-    description: 'Advanced clinical electrocautery and RF micro-precision removals for facial warts and moles. Quick 15-minute procedures with zero downtime and lasting results.',
-    duration: '15 mins',
-    tag: 'RF Micro-Precision',
+    title: 'Carbon laser therapy',
+    description: 'Hollywood carbon peel laser therapy delivering instant deep pore cleansing, oil reduction, blackhead extraction, and visible textural brightening.',
+    duration: '40 mins',
+    tag: 'Instant Laser Glow',
     image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80'
   },
   {
-    id: 'scar-treatment',
+    id: 'full-body-laser',
     category: 'advanced',
-    title: 'Scar Treatment',
-    description: 'Specialized clinical remodeling for deep ice-pick, boxcar, and rolling scars using advanced subcision and collagen induction.',
-    duration: '45 mins',
-    tag: 'Scar Tissue Remodeling',
-    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80'
+    title: 'Full body laser hair removal',
+    description: 'Pain-free, US-FDA approved cool-tip laser technology for permanent, smooth, ingrown-free hair reduction across all skin tones and body areas.',
+    duration: '60–120 mins',
+    tag: 'Permanent Smoothness',
+    image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80'
   }
 ];
 

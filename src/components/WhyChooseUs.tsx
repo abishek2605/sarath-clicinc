@@ -41,12 +41,12 @@ export default function WhyChooseUs() {
     {
       icon: CheckCircle,
       title: '98.7% Patient Satisfaction',
-      description: 'Over 12,000+ satisfied patients across Tamil Nadu. Highly trusted local reputation with patient-first care and verified feedback.'
+      description: 'Over 10,000+ satisfied patients across Tamil Nadu. Highly trusted local reputation with patient-first care and verified feedback.'
     }
   ];
 
   const stats = [
-    { number: '12,000+', label: 'Happy Patients' },
+    { number: '10,000+', label: 'Happy Patients' },
     { number: '10+', label: 'Years Experience' },
     { number: '98.7%', label: 'Success Rate' },
     { number: '4.9★', label: 'Patient Rating' }
