@@ -47,8 +47,8 @@ export default function WhyChooseUs() {
 
   const stats = [
     { number: '10,000+', label: 'Happy Patients' },
-    { number: '10+', label: 'Years Experience' },
-    { number: '98.7%', label: 'Success Rate' },
+    { number: '15+ Yrs', label: 'Expert Doctors' },
+    { number: 'FDA Appr.', label: 'Advanced Tech' },
     { number: '4.9★', label: 'Patient Rating' }
   ];
 

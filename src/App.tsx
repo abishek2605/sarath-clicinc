@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
-import TrustBar from './components/TrustBar';
 import Hero from './components/Hero';
 import Treatments from './components/Treatments';
 import WhyChooseUs from './components/WhyChooseUs';
@@ -124,10 +123,7 @@ export default function App() {
       {/* 1. Navigation Header */}
       <Header onBookClick={handleGlobalBookClick} />
 
-      {/* 2. Key Trust Bar */}
-      <TrustBar />
-
-      {/* 3. Main content sections with distinct visual separators */}
+      {/* 2. Main content sections with distinct visual separators */}
       <main id="main-content">
         <Hero onSuccess={handleLeadSuccess} />
         

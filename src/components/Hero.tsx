@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Calendar, Shield, Award, Users, CheckCircle2, Sparkles, AlertCircle } from 'lucide-react';
+import { Phone, Calendar, Shield, Award, Users, CheckCircle2, Sparkles, AlertCircle, Star, ShieldCheck, MapPin } from 'lucide-react';
 import { LeadSubmission } from '../types';
 import { sendLeadToFormspree } from '../services/formspree';
 
@@ -111,19 +111,38 @@ export default function Hero({ onSuccess }: HeroProps) {
   return (
     <section id="home" className="relative min-h-[calc(100vh-120px)] pt-8 sm:pt-12 lg:pt-16 pb-16 flex items-center justify-center bg-[#111111] overflow-hidden">
       {/* Background with luxury black overlay, clinical blue-grey glows, and golden particle grids */}
-      <div className="absolute inset-0 z-0">
-        {/* Subtle Luxury Grid Overlay */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" id="hero-background-grid">
+        {/* Modern Crisp Grid Box Structure */}
         <div 
-          className="absolute inset-0 opacity-[0.05] pointer-events-none" 
+          className="absolute inset-0 opacity-20" 
           style={{
-            backgroundImage: `linear-gradient(to right, rgba(212, 175, 55, 0.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(212, 175, 55, 0.5) 1px, transparent 1px)`,
-            backgroundSize: '48px 48px'
+            backgroundImage: `
+              linear-gradient(to right, rgba(201, 162, 39, 0.25) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(201, 162, 39, 0.25) 1px, transparent 1px)
+            `,
+            backgroundSize: '40px 40px',
+            maskImage: 'radial-gradient(ellipse 80% 70% at 50% 35%, #000 40%, transparent 95%)',
+            WebkitMaskImage: 'radial-gradient(ellipse 80% 70% at 50% 35%, #000 40%, transparent 95%)'
           }}
-        ></div>
-        {/* Subtle Golden Glow Circle */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full bg-gold/5 blur-[120px] pointer-events-none"></div>
-        {/* Clinical Teal-Blue Glow */}
-        <div className="absolute -bottom-10 left-10 w-[400px] h-[400px] rounded-full bg-cyan-900/5 blur-[100px] pointer-events-none"></div>
+        />
+
+        {/* Grid Box Corner Nodes / Tech Dots */}
+        <div 
+          className="absolute inset-0 opacity-15"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(201, 162, 39, 0.6) 1.5px, transparent 0)`,
+            backgroundSize: '40px 40px',
+            maskImage: 'radial-gradient(ellipse 75% 65% at 50% 30%, #000 35%, transparent 90%)',
+            WebkitMaskImage: 'radial-gradient(ellipse 75% 65% at 50% 30%, #000 35%, transparent 90%)'
+          }}
+        />
+
+        {/* Ambient Warm Golden Glow Center */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[550px] rounded-full bg-gold/10 blur-[130px]" />
+        {/* Top Corner Amber Accent */}
+        <div className="absolute -top-16 right-10 w-[350px] h-[350px] rounded-full bg-gold/5 blur-[100px]" />
+        {/* Clinical Deep Cyan/Slate Accent */}
+        <div className="absolute -bottom-10 left-10 w-[450px] h-[450px] rounded-full bg-cyan-950/20 blur-[110px]" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -196,36 +215,44 @@ export default function Hero({ onSuccess }: HeroProps) {
             </div>
 
             {/* Trust Badges Bar */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-gray-800" id="hero-trust-indicators">
-              <div className="flex items-center gap-2" id="indicator-fee">
-                <CheckCircle2 className="w-5 h-5 text-gold shrink-0" />
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 pt-6 border-t border-gray-800" id="hero-trust-indicators">
+              <div className="flex items-center gap-2" id="indicator-rating">
+                <Star className="w-5 h-5 text-gold shrink-0 fill-gold/20" />
                 <div className="text-left">
-                  <p className="text-[10px] uppercase tracking-wider text-gray-400 leading-none">Affordable Care</p>
-                  <p className="text-xs font-semibold text-white mt-1">Free Consultation</p>
+                  <p className="text-xs sm:text-sm font-bold text-white leading-none">4.9</p>
+                  <p className="text-[10px] uppercase tracking-wider text-gray-400 font-semibold mt-1">PATIENT RATING</p>
                 </div>
               </div>
               
-              <div className="flex items-center gap-2" id="indicator-sameday">
-                <Shield className="w-5 h-5 text-gold shrink-0" />
+              <div className="flex items-center gap-2" id="indicator-patients">
+                <Users className="w-5 h-5 text-gold shrink-0" />
                 <div className="text-left">
-                  <p className="text-[10px] uppercase tracking-wider text-gray-400 leading-none">Flexible Care</p>
-                  <p className="text-xs font-semibold text-white mt-1">Online & In-Clinic Care</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2" id="indicator-tech">
-                <Award className="w-5 h-5 text-gold shrink-0" />
-                <div className="text-left">
-                  <p className="text-[10px] uppercase tracking-wider text-gray-400 leading-none">Clinical Tech</p>
-                  <p className="text-xs font-semibold text-white mt-1">Advanced Treatments</p>
+                  <p className="text-xs sm:text-sm font-bold text-white leading-none">10,000+</p>
+                  <p className="text-[10px] uppercase tracking-wider text-gray-400 font-semibold mt-1">HAPPY PATIENTS</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-2" id="indicator-doctors">
-                <Users className="w-5 h-5 text-gold shrink-0" />
+                <ShieldCheck className="w-5 h-5 text-gold shrink-0" />
                 <div className="text-left">
-                  <p className="text-[10px] uppercase tracking-wider text-gray-400 leading-none">Dermatologists</p>
-                  <p className="text-xs font-semibold text-white mt-1">Experienced Specialists</p>
+                  <p className="text-xs sm:text-sm font-bold text-white leading-none">15+ Yrs</p>
+                  <p className="text-[10px] uppercase tracking-wider text-gray-400 font-semibold mt-1">EXPERT DOCTORS</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2" id="indicator-tech">
+                <Sparkles className="w-5 h-5 text-gold shrink-0" />
+                <div className="text-left">
+                  <p className="text-xs sm:text-sm font-bold text-white leading-none">FDA Appr.</p>
+                  <p className="text-[10px] uppercase tracking-wider text-gray-400 font-semibold mt-1">ADVANCED TECH</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 col-span-2 sm:col-span-1" id="indicator-location">
+                <MapPin className="w-5 h-5 text-gold shrink-0" />
+                <div className="text-left">
+                  <p className="text-xs sm:text-sm font-bold text-white leading-none">Tiruppur</p>
+                  <p className="text-[10px] uppercase tracking-wider text-gray-400 font-semibold mt-1">CLINIC</p>
                 </div>
               </div>
             </div>
